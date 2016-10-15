@@ -39,10 +39,10 @@ app.use((req, res, next) => {
 });
 
 // routes //
-
+const users = require('./routes/users');
 
 // app.use //
-
+app.use(users);
 
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
