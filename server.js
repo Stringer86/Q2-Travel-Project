@@ -6,11 +6,12 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 8000;
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const path = require('path');
+
+const port = process.env.PORT || 8000;
 
 switch (app.get('env')) {
   case 'development':
@@ -25,6 +26,7 @@ switch (app.get('env')) {
 }
 
 app.disable('x-powered-by');
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(express.static(path.join('public')));
@@ -38,11 +40,15 @@ app.use((req, res, next) => {
   res.sendStatus(406);
 });
 
-// routes //
 const users = require('./routes/users');
+//const destinations = require('./routes/destinations');
 
-// app.use //
 app.use(users);
+//app.use(destinations);
+
+app.use((_req, res) =>{
+    res.sendStatus(404);
+});
 
 app.use((err, _req, res, _next) => {
   if (err.output && err.output.statusCode) {
@@ -53,10 +59,11 @@ app.use((err, _req, res, _next) => {
   }
 
   if (err.status) {
+    console.log('hello');
     return res
       .status(err.status)
       .set('Content-Type', 'text/plain')
-      .send(err.statusText);
+      .send(err.errors[0].messages[0]);
   }
 
   // eslint-disable-next-line no-console
