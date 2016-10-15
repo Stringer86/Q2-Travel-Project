@@ -44,7 +44,7 @@ exports.seed = function(knex) {
       }, {
         id: 5,
         name: 'Victoria Falls',
-        description: 'Taking its place alongside the Pyramids and the Serengeti, Victoria Falls (Mosi-oa-Tunya – the 'smoke that thunders') is one of Africa’s original blockbusters. And although Zimbabwe and Zambia share it, Victoria Falls is a place all of its own.',
+        description: `Taking its place alongside the Pyramids and the Serengeti, Victoria Falls (Mosi-oa-Tunya – the 'smoke that thunders') is one of Africa’s original blockbusters. And although Zimbabwe and Zambia share it, Victoria Falls is a place all of its own.`,
         speaks_english: true,
         photo_url: 'http://images.nationalgeographic.com/wpf/media-live/photos/000/927/overrides/tourists-observing-victoria-falls_92761_600x450.jpg',
         currency: 'ZWD',
