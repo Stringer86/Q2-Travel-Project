@@ -5,7 +5,8 @@
   "main": "knex.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "knex": "knex"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/Stringer86/Q2-Travel-Project/issues"
   },
-  "homepage": "https://github.com/Stringer86/Q2-Travel-Project#readme"
+  "homepage": "https://github.com/Stringer86/Q2-Travel-Project#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "knex": "^0.12.5",
+    "pg": "^6.1.0"
+  }
 }
