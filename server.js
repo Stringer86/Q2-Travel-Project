@@ -41,10 +41,10 @@ app.use((req, res, next) => {
 });
 
 const users = require('./routes/users');
-//const destinations = require('./routes/destinations');
+const token = require('./routes/token');
 
 app.use(users);
-//app.use(destinations);
+app.use(token);
 
 app.use((_req, res) =>{
     res.sendStatus(404);
