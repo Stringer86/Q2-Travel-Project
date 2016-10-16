@@ -16,7 +16,7 @@
       <nav>
         <!-- <div class="container "> -->
           <div class="nav-wrapper teal darken-3">
-            <a href="index.html" class="brand-logo">Materialize</a>
+            <a href="index.html" class="brand-logo">Trip Planner</a>
             <ul class="right side-nav" id="nav-mobile">
               <li class="hide-on-small-only"><a href="parallax.html"><i class="mdi-navigation-arrow-back"></i></a></li>
             </ul>
@@ -43,34 +43,43 @@
           <button class="waves-effect waves-light btn modal-trigger center" data-target="modal1">Modal</button>
 
           <!-- Modal Structure -->
+          <form id="signUpForm">
             <div id="modal1" class="modal z-depth-5">
-              <div class="modal-content">
-                <h4>Login or Register</h4>
-                <div class="row">
-                  <form class="col s12">
-                    <div class="row modal-form-row">
-                      <div class="input-field col s12">
-                        <input id="image_url" type="text" class="validate">
-                        <label for="image_url">Email</label>
+                <div class="modal-content">
+                  <h4>Login or Register</h4>
+                  <div class="row">
+                    <form class="col s12">
+                      <div class="row modal-form-row">
+                        <div class="input-field col s12">
+                          <input id="email" type="email" class="validate">
+                          <label for="Email">Email</label>
+                        </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s12">
-                        <input id="image_title" type="text" class="validate">
-                        <label for="image_title">Password</label>
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <input id="password" type="password" class="validate">
+                          <label for="password">Password</label>
+                        </div>
                       </div>
-                    </div>
-                    <div class="row">
-                      <div class="input-field col s12">
+                      <div class="row">
+                        <div class="input-field col s12">
+                        </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
-              </div>
-              <div class="modal-footer">
-                <a class=" modal-action modal-close waves-effect waves-green btn-flat center">Submit</a>
+                <div class="modal-footer card-action">
+                <button id="register" class="modal-action waves-effect waves-teal darken-3 btn-flat center waves-effect waves-light btn-large" type="submit" name="action">
+                  <i class="material-icons left">perm_identity</i>
+                  Register
+                </button>
+                <button id="logIn" class=" modal-action waves-effect waves-teal darken-3 btn-flat center waves-effect waves-light btn-large" type="submit" name="action">
+                  <i class="material-icons left">perm_identity</i>
+                  Log in
+                </button>
               </div>
             </div>
+          </form>
           </div>
       </div>
       <div class="parallax-container">
@@ -97,5 +106,5 @@
       <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
       <script src="../js/index.js"></script>
-  </body>
+ </body>
 </html>
