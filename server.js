@@ -13,19 +13,19 @@ const path = require('path');
 
 const port = process.env.PORT || 8000;
 
+app.disable('x-powered-by');
+
 switch (app.get('env')) {
   case 'development':
-    app.use(morgan('dev'));
-    break;
+  app.use(morgan('dev'));
+  break;
 
   case 'production':
-    app.use(morgan('short'));
-    break;
+  app.use(morgan('short'));
+  break;
 
   default:
 }
-
-app.disable('x-powered-by');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -42,9 +42,11 @@ app.use((req, res, next) => {
 
 const users = require('./routes/users');
 const token = require('./routes/token');
+// const favorites = require('./routes/favorites');
 
 app.use(users);
 app.use(token);
+// app.use(favorites);
 
 app.use((_req, res) =>{
     res.sendStatus(404);
