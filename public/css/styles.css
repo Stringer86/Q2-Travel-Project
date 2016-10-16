@@ -1,18 +1,16 @@
-/** {
-  border: red solid 3px;
-}*/
-
 
 .parallax-container {
-     height: 600px;
+     height: 350px;
      padding-bottom: 0;
    }
+
 footer.page-footer {
   margin-top: 0px;
 }
 
 .modal {
   max-height: 90%;
+  margin-top: 1%;
 }
 
 .modal-form-row {
