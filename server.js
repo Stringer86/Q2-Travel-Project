@@ -44,12 +44,15 @@ app.use((req, res, next) => {
 
 const users = require('./routes/users');
 const token = require('./routes/token');
-// const favorites = require('./routes/favorites');
+const descriptions = require('./routes/descriptions');
+const images = require('./routes/images');
+
 
 
 app.use(users);
 app.use(token);
-// app.use(favorites);
+app.use(descriptions);
+app.use(images);
 
 app.use((_req, res) =>{
     res.sendStatus(404);
