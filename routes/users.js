@@ -14,8 +14,6 @@ const router = express.Router();
 router.post('/users', ev(validations.post), (req, res, next) => {
   const { email, password } = req.body;
 
-  console.log(hello);
-
   knex('users')
     .where('email', email)
     .then((rows) => {

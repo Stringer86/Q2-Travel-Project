@@ -4,12 +4,11 @@
     $('.modal-trigger').leanModal();
 
     // eslint-disable-next-line max-statements
-    $('#signUpForm').submit((event) => {
+    $('#register').click  ((event) => {
       event.preventDefault();
 
       const email = $('#email').val().trim();
       const password = $('#password').val();
-      console.log(email);
 
       if (!email) {
         return Materialize.toast('Email must not be blank', 3000);
@@ -31,15 +30,46 @@
         data: JSON.stringify({ email, password }),
         dataType: 'json',
         type: 'POST',
-        url: './routes/users'
+        url: '/users'
       };
 
       $.ajax(options)
         .done(() => {
-          window.location.href = 'user_search.html';
+          window.location.href = '/html/user_search.html';
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);
         });
+    });
+
+    $('#logIn').click((event) => {
+    event.preventDefault();
+
+    const email = $('#email').val().trim();
+    const password = $('#password').val();
+
+    if (!email) {
+      return Materialize.toast('Email must not be blank', 3000);
+    }
+
+    if (!password) {
+      return Materialize.toast('Password must not be blank', 3000);
+    }
+
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({ email, password }),
+      dataType: 'json',
+      type: 'POST',
+      url: '/token'
+    };
+
+    $.ajax(options)
+      .done(() => {
+        window.location.href = '/html/user_search.html';
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
     });
   })();

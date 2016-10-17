@@ -29,7 +29,13 @@ switch (app.get('env')) {
 
 app.use(bodyParser.json());
 app.use(cookieParser());
+
 app.use(express.static(path.join('public')));
+// app.use('/static', express.static(__dirname + '/public/html'));
+app.get('/', (req, res, next) => {
+  res.sendFile(path.join(__dirname + '/public/html/index.html'));
+});
+
 
 // CSRF protection
 app.use((req, res, next) => {
@@ -40,9 +46,11 @@ app.use((req, res, next) => {
   res.sendStatus(406);
 });
 
+
 const users = require('./routes/users');
 const token = require('./routes/token');
 // const favorites = require('./routes/favorites');
+
 
 app.use(users);
 app.use(token);
