@@ -8,11 +8,13 @@ const $bottomRow = $('.bottomRow');
 const $btn = $('.btn');
 const $description = $('.description');
 const $head = $('.head');
-const $search = $('#search')
+const $search = $('#search');
 
 function getPhotos() {
+  event.preventDefault();
 
         let text = $search.val();
+        // let text = location.search; // need regular expression. // learn capture groups // learn reg expression
 
         let $xhr = $.getJSON(`https://pixabay.com/api/?q=${text}&category=nature&key=3524767-02f5ba794561ee4931dcf448b`);
 
