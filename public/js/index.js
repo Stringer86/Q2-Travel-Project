@@ -5,7 +5,7 @@
 
     // eslint-disable-next-line max-statements
     $('#signUpForm').submit((event) => {
-      event.preventDefault();
+      //event.preventDefault();
 
       const email = $('#email').val().trim();
       const password = $('#password').val();
