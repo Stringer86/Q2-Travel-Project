@@ -5,10 +5,11 @@
 
     // eslint-disable-next-line max-statements
     $('#signUpForm').submit((event) => {
-      //event.preventDefault();
+      event.preventDefault();
 
       const email = $('#email').val().trim();
       const password = $('#password').val();
+      console.log(email);
 
       if (!email) {
         return Materialize.toast('Email must not be blank', 3000);
@@ -25,17 +26,17 @@
         );
       }
 
-      const options = {
+      const options = { //req body
         contentType: 'application/json',
         data: JSON.stringify({ email, password }),
         dataType: 'json',
         type: 'POST',
-        url: '../html/users.html'
+        url: './routes/users'
       };
 
       $.ajax(options)
         .done(() => {
-          window.location.href = 'result.html';
+          window.location.href = 'user_search.html';
         })
         .fail(($xhr) => {
           Materialize.toast($xhr.responseText, 3000);
