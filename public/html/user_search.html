@@ -26,22 +26,102 @@
     </header>
 
   <main>
-    <ul id="slide-out" class="side-nav">
+    <ul id="slide-out" class="side-nav fixed">
       <li>
         <div class="userView">
-          <img class="background" src="images/office.jpg">
-          <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+          <img class="background" src="../images/skyline.jpg">
+          <a href="#!user"><img class="circle" src="../images/halongBay.jpg"></a>
           <a href="#!name"><span class="white-text name">John Doe</span></a>
           <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
         </div>
       </li>
-      <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-      <li><a href="#!">Second Link</a></li>
       <li><div class="divider"></div></li>
       <li><a class="subheader">Subheader</a></li>
       <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      <li><div class="divider"></div></li>
     </ul>
-  <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    <a href="#" data-activates="slide-out" class="button-collapse button-collapse show-on-large"><i class="material-icons large">keyboard_arrow_right</i></a>
+
+    <div id="search-bar-container" class="container">
+      <div class="page-container-responsive search-bar-responsive-container">
+        <div id="searchbar">
+          <div class="searchbar row">
+            <form id="searchbar-form" action="/s">
+              <div class="searchbar__inputs-wrapper col-sm-10">
+              <div class="row">
+                <label class="searchbar__location col-md-4 col-lg-6">
+                  <span class="screen-reader-only">
+                    Where to?
+                  </span>
+                  <input id="location" type="text" class="input-large input-contrast" autocomplete="off" name="location" placeholder="Where to?" />
+                    <div id="searchbar-location-error" class="searchbar__location-error hide">
+                      Please set location
+                    </div>
+                </label>
+
+                <label class="searchbar__checkin col-md-3 col-lg-2">
+                  <span class="screen-reader-only">
+                    Check In
+                  </span>
+                  <input
+                    id="checkin"
+                    type="text"
+                    class="checkin input-large input-contrast"
+                    name="checkin"
+                    placeholder="Check In" />
+                </label>
+
+                <label class="searchbar__checkout col-md-3 col-lg-2">
+                  <span class="screen-reader-only">
+                    Check Out
+                  </span>
+                  <input
+                    id="checkout"
+                    type="text"
+                    class="checkout input-large input-contrast"
+                    name="checkout"
+                    placeholder="Check Out" />
+                </label>
+
+                <label class="searchbar__guests col-md-2">
+                  <span class="screen-reader-only">
+                    Number of guests
+                  </span>
+                  <div class="select select-block select-large">
+                    <select id="guests" name="guests">
+                      <option value="1">1 Guest</option>
+                      <option value="2">2 Guests</option>
+                      <option value="3">3 Guests</option>
+                      <option value="4">4 Guests</option>
+                      <option value="5">5 Guests</option>
+                      <option value="6">6 Guests</option>
+                      <option value="7">7 Guests</option>
+                      <option value="8">8 Guests</option>
+                      <option value="9">9 Guests</option>
+                      <option value="10">10 Guests</option>
+                      <option value="11">11 Guests</option>
+                      <option value="12">12 Guests</option>
+                      <option value="13">13 Guests</option>
+                      <option value="14">14 Guests</option>
+                      <option value="15">15 Guests</option>
+                      <option value="16">16+ Guests</option>
+                    </select>
+                  </div>
+                </label>
+              </div>
+            </div>
+              <div class="searchbar__submit-wrapper col-sm-2">
+                <button id="submit_location" type="submit" class="searchbar__submit btn btn-primary btn-block btn-large">
+                  <span class="searchbar__submit-text">
+                    Search
+                  </span>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </main>
 
@@ -63,6 +143,6 @@
    <!--  Scripts-->
    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-   <script src="../js/index.js"></script>
+   <script src="../js/userSearch.js"></script>
 </body>
 </html>
