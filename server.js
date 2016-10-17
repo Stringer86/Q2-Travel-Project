@@ -31,11 +31,6 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 app.use(express.static(path.join('public')));
-// app.use('/static', express.static(__dirname + '/public/html'));
-app.get('/', (req, res, next) => {
-  res.sendFile(path.join(__dirname + '/public/html/index.html'));
-});
-
 
 // CSRF protection
 app.use((req, res, next) => {
