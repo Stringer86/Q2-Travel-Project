@@ -15,8 +15,8 @@ const router = express.Router();
 
 router.post('/api/favorites', (req, res, next) => {
   const { name, description, photoUrl } = req.body;
-  // const { userId } = req.token;
-  const userId = 1;
+  const { userId } = req.token;
+  // const userId = 1;
 
   knex('destinations')
     .where('name', name)
