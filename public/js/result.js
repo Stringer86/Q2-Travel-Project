@@ -65,10 +65,6 @@ $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
 function favoriteIt(event) {
   event.preventDefault();
 
-  console.log(localStorage.input);
-  console.log(description);
-  console.log(images[4]);
-
   const name = localStorage.input;
   const photoUrl = images[4];
 
@@ -82,10 +78,10 @@ function favoriteIt(event) {
 
   $.ajax(options)
     .done(() => {
-          Materialize.toast('Added book to your favorites', 3000);
+          Materialize.toast('Added book to your destination', 3000);
         })
         .fail(() => {
-          Materialize.toast('Unable to add this book to your favorites', 3000);
+          Materialize.toast('Unable to add this destination to your favorites', 3000);
         });
 
 
