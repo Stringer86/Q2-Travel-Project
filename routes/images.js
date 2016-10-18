@@ -25,13 +25,14 @@ const router = express.Router();
 
 router.get('/api/images', (req, res, next) => {
   const { searchTerm } = req.query;
+  // const searchTerm = localStorage.input;
   console.log(searchTerm);
 
   let options = { method: 'GET',
   url: 'https://pixabay.com/api/',
   qs:
    { q: searchTerm,
-     category: 'nature',
+     category: 'city',
      order: 'popular',
      key: '3524767-02f5ba794561ee4931dcf448b' },
   headers:
