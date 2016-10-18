@@ -6,7 +6,7 @@ exports.up = function(knex) {
     table.string('name').notNullable().defaultTo('');
     table.text('description').notNullable().defaultTo('');
     table.text('photo_url').notNullable().defaultTo('');
-    table.timestamps('true', 'true');
+    table.timestamps(true, true);
   });
 };
 
