@@ -13,8 +13,8 @@ const validations = require('../validations/users');
 const router = express.Router();
 
 
-router.post('/api/descriptions', (req, res, next) => {
-  const { name, description, photoUrl } = req.query;
+router.post('/api/destinations', (req, res, next) => {
+  const { userId, name, description, photoUrl } = req.body;
 
   knex('destinations')
     .where('name', name)
@@ -28,6 +28,6 @@ router.post('/api/descriptions', (req, res, next) => {
             photo_url: photoUrl
           })
       }
+    })
 
-
-})
+module.exports = router;
