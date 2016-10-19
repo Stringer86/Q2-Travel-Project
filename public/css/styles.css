@@ -26,10 +26,14 @@ body {
   min-height: 100vh;
   flex-direction: column;
   background-image: url('../images/alaskaMountains.jpg');
-  }
+}
 
-#background-image {
+#map {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://wallpaper.zone/img/5483851.jpg");
+}
 
+#slide {
+  padding-top: 45%;
 }
 
   main {
