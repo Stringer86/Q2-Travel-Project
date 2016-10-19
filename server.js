@@ -49,6 +49,7 @@ const token = require('./routes/token');
 const descriptions = require('./routes/descriptions');
 const images = require('./routes/images');
 const favorites = require('./routes/favorites');
+const travel = require('./routes/travel');
 
 
 
@@ -57,6 +58,7 @@ app.use(token);
 app.use(descriptions);
 app.use(images);
 app.use(favorites);
+app.use(travel);
 
 app.use((_req, res) =>{
     res.sendStatus(404);

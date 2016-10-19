@@ -12,6 +12,7 @@ const validations = require('../validations/users');
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
+
 router.get('/api/travel', (req, res, next) => {
   const { searchTerm } = req.query;
 
@@ -28,5 +29,7 @@ request(options, function (error, response, data) {
   if (error) throw new Error(error);
 
   res.send(data);
-});
+  });
 })
+
+module.exports = router;
