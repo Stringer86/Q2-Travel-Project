@@ -32,7 +32,7 @@ router.get('/api/images', (req, res, next) => {
   url: 'https://pixabay.com/api/',
   qs:
    { q: searchTerm,
-     category: 'city',
+     category: 'nature',
      order: 'popular',
      key: '3524767-02f5ba794561ee4931dcf448b' },
   headers:
