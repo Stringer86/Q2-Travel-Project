@@ -19,14 +19,14 @@ const authorize = function(req, res, next) {
     }
 
     req.token = decoded;
-
     next();
   });
 };
 
-router.get('/favorites', (req, res, next) => {
-  // const { userId } = req.token;
-  const userId = 1;
+router.get('/favorites', authorize, (req, res, next) => {
+  const { userId } = req.token;
+  // const userId = 1;
+  // console.log("working?");
 
   knex('favorites')
     .innerJoin('destinations', 'destinations.id', 'favorites.destination_id')
@@ -41,21 +41,21 @@ router.get('/favorites', (req, res, next) => {
       next(err);
     });
 });
+//
+// router.get('/favorites/:id', authorize, (req, res, next) => {
+//
+//   knex('favorites')
+//     .where('destination_id', req.query.bookId)
+//     .then((favorites) => res.send(favorites.length > 0))
+//     .catch((err) => {
+//       next(err)
+//     });
+// });
 
-router.get('/favorites/:id', authorize, (req, res, next) => {
-
-  knex('favorites')
-    .where('destination_id', req.query.bookId)
-    .then((favorites) => res.send(favorites.length > 0))
-    .catch((err) => {
-      next(err)
-    });
-});
-
-router.post('/favorites', (req, res, next) => {
+router.post('/favorites', authorize, (req, res, next) => {
   const { name, description, photoUrl } = req.body;
-  // const { userId } = req.token;
-  const userId = 1;
+  const { userId } = req.token;
+  // const userId = 1;
   console.log(req.body);
 
   knex('destinations')
