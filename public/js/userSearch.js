@@ -3,6 +3,34 @@
 
 const $btn = $('.btn');
 const $search = $('#search');
+const $test = $('.test');
+
+$.getJSON(`/favorites`)
+  .done((data) => {
+
+    for (let i = 0; i < data.length; i++) {
+      $test.append(`<div class="col s3 m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="${data[i].photoUrl}">
+              <span class="card-title">${data[i].name}</span>
+            </div>
+            <div class="card-content">
+              <p>${data[i].description}</p>
+            </div>
+            <div class="card-action">
+              <a href="#">This is a link</a>
+            </div>
+          </div>
+        </div>`)
+    }
+    console.log(data[0]);
+
+
+  })
+  .fail(() => {
+    console.log("desciption not working");
+  })
 
 function searchIt(event) {
   event.preventDefault();

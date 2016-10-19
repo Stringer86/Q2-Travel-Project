@@ -48,7 +48,7 @@ const users = require('./routes/users');
 const token = require('./routes/token');
 const descriptions = require('./routes/descriptions');
 const images = require('./routes/images');
-const favorites = require('./routes/favorites2');
+const favorites = require('./routes/favorites');
 
 
 

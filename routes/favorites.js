@@ -24,8 +24,9 @@ const authorize = function(req, res, next) {
   });
 };
 
-router.get('/favorites', authorize, (req, res, next) => {
-  const { userId } = req.token;
+router.get('/favorites', (req, res, next) => {
+  // const { userId } = req.token;
+  const userId = 1;
 
   knex('favorites')
     .innerJoin('destinations', 'destinations.id', 'favorites.destination_id')
@@ -51,33 +52,44 @@ router.get('/favorites/:id', authorize, (req, res, next) => {
     });
 });
 
-router.post('/favorites', authorize, ev(validations.post), (req, res, next) => {
-  const { userId } = req.token;
-  // const { bookId } = req.body;
-
-  const favorite = { bookId, /*userId*/ };
+router.post('/favorites', (req, res, next) => {
+  const { name, description, photoUrl } = req.body;
+  // const { userId } = req.token;
+  const userId = 1;
+  console.log(req.body);
 
   knex('destinations')
-     .where('id', destination_id)
-     .first()
-     .then((row) => {
-       if (!row) return next(boom.create(404, 'Destination not found'));
+    .where('name', name)
+    .first()
+    .then((destination) => {
+      if (!destination) {
+        return knex('destinations')
+          .insert(decamelizeKeys({
+            name: name,
+            description: description,
+            photoUrl: photoUrl
+          }), '*');  // * means you get insertion result back.
+      }
+
+      return [destination]
+    })
+    .then((destinations) => {
+      const destination = destinations[0];
 
       return knex('favorites')
-        .insert(decamelizeKeys(favorite), '*')
-        .then((rows) => {
-          const insertFav = camelizeKeys(rows[0]);
-
-          res.send(insertFav); // then give me what I just inserted into the DB
-        })
-        .catch((err) => {
-          next(err);
-        });
-      })
-      .catch((err) => {
-        next(err);
-      });
+        .insert(decamelizeKeys({
+          userId,
+          destinationId: destination.id
+        }), '*');
+    })
+    .then((favorites) => {
+      res.send(favorites[0]);
+    })
+    .catch((err) => {
+      next(err);
     });
+});
+
 
 router.delete('/favorites', authorize, (req, res, next) => {
   let favorite;

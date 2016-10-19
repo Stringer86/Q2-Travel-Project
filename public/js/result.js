@@ -65,7 +65,7 @@ $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
 function favoriteIt(event) {
   event.preventDefault();
 
-  const name = localStorage.input;
+  const name = localStorage.input.charAt(0).toUpperCase() + localStorage.input.slice(1);;
   const photoUrl = images[4];
 
   const options = { //req body
@@ -73,7 +73,7 @@ function favoriteIt(event) {
     data: JSON.stringify({ name, description, photoUrl }),
     dataType: 'json',
     type: 'POST',
-    url: '/api/favorites'
+    url: '/favorites'
   };
 
   $.ajax(options)
