@@ -6,6 +6,11 @@ exports.up = function(knex) {
     table.string('name').notNullable().defaultTo('');
     table.text('description').notNullable().defaultTo('');
     table.text('photo_url').notNullable().defaultTo('');
+    table.text('language').defaultTo('');
+    table.string('currency').defaultTo('');
+    table.string('x_rate').defaultTo('');
+    table.string('latitude').defaultTo('');
+    table.string('longitude').defaultTo('');
     table.timestamps(true, true);
   });
 };
