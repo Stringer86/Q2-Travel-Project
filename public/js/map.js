@@ -17,7 +17,37 @@ $.getJSON(`/favorites`)
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 1,
       center: new google.maps.LatLng(34.5133, -94.1629),
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      styles: [
+      {
+        featureType: 'all',
+        stylers: [
+          { hue: '#22aaaa' },
+        ]
+      },
+      {
+        featureType: 'all',
+        elementType: 'labels',
+        stylers: [
+          { visibility: 'off'}
+        ]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        stylers: [
+          { visibility: 'off'}
+        ]
+      },
+      {
+        featureType: 'water',
+        elementType: 'geometry.fill',
+        stylers: [
+          { color: '#63BDDB' },
+          {saturation: 20}
+        ]
+      }
+    ]
     });
 
     const infowindow = new google.maps.InfoWindow();
