@@ -27,14 +27,19 @@ $.getJSON(`/favorites`)
               <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
               <p>${data[i].description}</p>
                 <div class="divider"></div>
-              <p><a type="submit" class="btn center">Search</a></p>
+              <p><a type="submit" class="btn search" id="${data[i].name}">Search</a></p>
             </div>
           </div>
         </div>`
       )
     }
-    let $btn = $('.delete')
-    $btn.click(deleteFav);
+    let $del = $('.delete')
+    $del.click(deleteFav);
+
+    let $search = $('.search')
+    $search.click(searchFav);
+
+
 
   })
   .fail(() => {
@@ -89,6 +94,35 @@ function deleteFav(event) {
     .fail(($xhr) => {
       Materialize.toast($xhr.responseText, 3000);
     })
+
+}
+
+function searchFav(event) {
+  event.preventDefault();
+
+  const searchInput = this.id
+  localStorage.input = searchInput;
+
+  if (!searchInput) {
+    return Materialize.toast('Search must not be blank', 3000);
+  }
+
+  const options = {
+    contentType: 'application/json',
+    data: JSON.stringify({ searchInput }),
+    dataType: 'json',
+    type: 'GET',
+    url: '/api/images'
+  };
+
+  $.ajax(options)
+    .done(() => {
+      console.log("hello");
+      window.location.href = `/result.html?${searchInput}`;
+    })
+    .fail(($xhr) => {
+      Materialize.toast($xhr.responseText, 3000);
+    });
 
 }
 
