@@ -3,28 +3,34 @@
 
 const $btn = $('.btn');
 const $search = $('.autocomplete');
+const $images = $('#images');
 const $test = $('.test');
 
 $.getJSON(`/favorites`)
   .done((data) => {
-
     console.log(data);
 
     for (let i = 0; i < data.length; i++) {
-      $test.append(`<div class="col s3 m3">
-          <div class="card">
-            <div class="card-image">
-              <img src="${data[i].photoUrl}">
-              <span class="card-title">${data[i].name}</span>
+      $images.append(
+        `<div class="col s6">
+          <div class="card small">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="${data[i].photoUrl}">
             </div>
             <div class="card-content">
-              <p>${data[i].description}</p>
+              <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
+              <div class="divider"></div>
+              <p><a type="submit" class="btn">Delete</a></p>
             </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
+              <p>${data[i].description}</p>
+                <div class="divider"></div>
+              <p><a type="submit" class="btn center">Search</a></p>
             </div>
           </div>
-        </div>`)
+        </div>`
+      )
     }
 
   })
