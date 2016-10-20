@@ -4,8 +4,7 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
   <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">  <link rel="stylesheet" href="css/styles.css">
   <title>Q2 Project</title>
 </head>
 
@@ -13,7 +12,7 @@
 
   <header>
     <nav>
-      <div class="nav-wrapper valign-wrapper teal darken-3">
+      <div class="nav-wrapper center teal darken-3">
         <a href="index.html" class="brand-logo valign">Wander Lust</a>
         <ul class="right side-nav" id="nav-mobile">
           <li class="hide-on-small-only"><a href="parallax.html"><i class="mdi-navigation-arrow-back"></i></a></li>
@@ -31,52 +30,17 @@
       <form id="" class="">
         <div id="search-row" class="row">
 
-          <div class="input-field col s2">
+          <div class="input-field col s9">
             <label for="autocomplete-input" class="">
               <input
                 type="text"
                 class="autocomplete"
-                id="autocomplete-input"
                 name="location"
                 placeholder="Where to?" />
             </label>
           </div>
 
-          <div class="input-field col s2">
-            <label class="">
-              <input
-              id="checkin"
-              type="date"
-              class="datepicker"
-              name="checkin"
-              placeholder="Check In" />
-              </label>
-            </div>
-
-          <div class="input-field col s2">
-            <label class="">
-              <input
-              id="checkout"
-              type="date"
-              class="datepicker"
-              name="checkout"
-              placeholder="Check Out" />
-            </label>
-          </div>
-
-          <div class="input-field col s2">
-              <label class="searchbar-guests">
-                <select id="guests" name="guests">
-                  <option value="1">1 Guest</option>
-                  <option value="2">2 Guests</option>
-                  <option value="3">3 Guests</option>
-                  <option value="4">4 Guests</option>
-                  <option value="5">5 Guests</option>
-                </select>
-              </label>
-          </div>
-
-          <div id="btn" class="col s2">
+          <div id="btn" class="col s3">
             <a class="waves-effect waves-light btn" type="submit" name="action">Search</a>
           </div>
 
@@ -104,7 +68,8 @@
     <div class="container">
       <div class="row">
         <div class="col s12">
-
+          <h3>My Google Maps Demo</h3>
+          <div id="map"></div>
         </div>
       </div>
     </div>
@@ -127,9 +92,10 @@
    </footer>
 
    <!--  Scripts-->
-   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-   <script src="js/materialize.js"></script>
-   <script src="js/userSearch.js"></script>
-</body>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <script src="js/mat.js"></script>
+  <script src="js/userSearch.js"></script>
+  <script src="js/map.js"></script>
+ </body>
 </html>
