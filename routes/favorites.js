@@ -43,8 +43,7 @@ router.get('/favorites', authorize, (req, res, next) => {
 router.post('/favorites', authorize, (req, res, next) => {
   const { name, description, photoUrl, language, currency, xRate, latitude, longitude } = req.body;
   const { userId } = req.token;
-  // const userId = 1;
-  console.log(req.body);
+  
 
   knex('destinations')
     .where('name', name)

@@ -14,7 +14,7 @@ $.getJSON(`/favorites`)
       locations.push([place, lat, long, i]);
     }
 
-    const map = new google.maps.Map(document.getElementById('map'), {
+    var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 1,
       center: new google.maps.LatLng(34.5133, -94.1629),
       mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -50,9 +50,9 @@ $.getJSON(`/favorites`)
     ]
     });
 
-    const infowindow = new google.maps.InfoWindow();
+    var infowindow = new google.maps.InfoWindow();
 
-    const marker, i;
+    var marker, i;
 
     for (i = 0; i < locations.length; i++) {
       marker = new google.maps.Marker({
