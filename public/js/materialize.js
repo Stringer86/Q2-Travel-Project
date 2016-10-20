@@ -1,5 +1,5 @@
 (function() {
-  'use strict'; 
+  'use strict';
 
   $('select').material_select();
 
@@ -9,7 +9,7 @@
 
 
   $('.button-collapse').sideNav({
-      menuWidth: 600, // Default is 240
+      menuWidth: 500, // Default is 240
       edge: 'left', // Choose the horizontal origin
       closeOnClick: true
     }
