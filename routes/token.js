@@ -19,6 +19,7 @@ const authorize = function(req, res, next) {
   });
 };
 
+
 router.post('/token', authorize, (req, res, next) => {
   const { email, password } = req.body;
 
@@ -63,7 +64,7 @@ router.post('/token', authorize, (req, res, next) => {
 router.delete('/token', (req, res, next) => {
   res.clearCookie('token');
   res.status(200);
-  // res.send(true);
+  res.send(true);
 });
 
 module.exports = router;

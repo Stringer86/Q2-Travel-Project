@@ -26,6 +26,8 @@ const authorize = function(req, res, next) {
 router.get('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
 
+
+
   knex('favorites')
     .innerJoin('destinations', 'destinations.id', 'favorites.destination_id')
     .where('favorites.user_id', userId)

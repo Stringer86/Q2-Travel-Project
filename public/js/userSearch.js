@@ -5,6 +5,7 @@ const $btn = $('.btn');
 const $search = $('.autocomplete');
 const $images = $('#images');
 const $test = $('.test');
+const $logout = $('#logout');
 
 let ids = [];
 
@@ -43,7 +44,7 @@ $.getJSON(`/favorites`)
 
   })
   .fail(() => {
-    console.log("desciption not working");
+    window.location.href = `/index.html`
   })
 
 function searchIt(event) {
@@ -126,7 +127,29 @@ function searchFav(event) {
 
 }
 
+function logout(event) {
+ event.preventDefault();
+
+  const options = {
+    contentType: 'application/json',
+    dataType: 'json',
+    type: 'DELETE',
+    url: '/token'
+  };
+
+  $.ajax(options)
+    .done(() => {
+      console.log("working");
+      window.location.href = `/index.html`;
+    })
+    .fail(($xhr) => {
+      console.log("not working");
+      Materialize.toast($xhr.responseText, 3000);
+    });
+}
+
 $btn.click(searchIt);
+$logout.click(logout);
 
 
 })();
