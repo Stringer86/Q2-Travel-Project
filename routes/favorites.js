@@ -85,7 +85,7 @@ router.post('/favorites', authorize, (req, res, next) => {
 
 router.delete('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-  const { destination_id } = req.body;
+  const { destinationId } = req.body;
 
   knex('favorites')
     .where('destination_id', destinationId)

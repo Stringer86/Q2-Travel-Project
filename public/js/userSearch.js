@@ -6,9 +6,10 @@ const $search = $('.autocomplete');
 const $images = $('#images');
 const $test = $('.test');
 
+let ids = [];
+
 $.getJSON(`/favorites`)
   .done((data) => {
-    console.log(data);
 
     for (let i = 0; i < data.length; i++) {
       $images.append(
@@ -20,7 +21,7 @@ $.getJSON(`/favorites`)
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
               <div class="divider"></div>
-              <p><a type="submit" class="btn">Delete</a></p>
+              <p><a type="submit" class="btn delete" id="${data[i].destinationId}">Delete</a></p>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
@@ -32,6 +33,8 @@ $.getJSON(`/favorites`)
         </div>`
       )
     }
+    let $btn = $('.delete')
+    $btn.click(deleteFav);
 
   })
   .fail(() => {
@@ -67,6 +70,29 @@ function searchIt(event) {
 
 }
 
+function deleteFav(event) {
+  event.preventDefault();
+  const destinationId = this.id;
+
+  const options = {
+    contentType: 'application/json',
+    data: JSON.stringify({ destinationId }),
+    dataType: 'json',
+    type: 'DELETE',
+    url: '/favorites'
+  }
+
+  $.ajax(options)
+    .done(() => {
+      window.location.href = `/user_search.html`
+    })
+    .fail(($xhr) => {
+      Materialize.toast($xhr.responseText, 3000);
+    })
+
+}
+
 $btn.click(searchIt);
+
 
 })();
