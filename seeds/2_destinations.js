@@ -58,5 +58,5 @@ exports.seed = function(knex) {
     .then(() => {
       return knex.raw("SELECT setval('destinations_id_seq', (SELECT MAX(id) FROM destinations));"
     );
-    });
+  });
 };
