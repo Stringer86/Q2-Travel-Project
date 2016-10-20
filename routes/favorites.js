@@ -25,8 +25,6 @@ const authorize = function(req, res, next) {
 
 router.get('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-  // const userId = 1;
-  // console.log("working?");
 
   knex('favorites')
     .innerJoin('destinations', 'destinations.id', 'favorites.destination_id')
@@ -41,19 +39,9 @@ router.get('/favorites', authorize, (req, res, next) => {
       next(err);
     });
 });
-//
-// router.get('/favorites/:id', authorize, (req, res, next) => {
-//
-//   knex('favorites')
-//     .where('destination_id', req.query.bookId)
-//     .then((favorites) => res.send(favorites.length > 0))
-//     .catch((err) => {
-//       next(err)
-//     });
-// });
 
 router.post('/favorites', authorize, (req, res, next) => {
-  const { name, description, photoUrl } = req.body;
+  const { name, description, photoUrl, language, currency, xRate, latitude, longitude } = req.body;
   const { userId } = req.token;
   // const userId = 1;
   console.log(req.body);
@@ -67,7 +55,12 @@ router.post('/favorites', authorize, (req, res, next) => {
           .insert(decamelizeKeys({
             name: name,
             description: description,
-            photoUrl: photoUrl
+            photoUrl: photoUrl,
+            language: language,
+            currency: currency,
+            xRate: xRate,
+            latitude: latitude,
+            longitude: longitude
           }), '*');  // * means you get insertion result back.
       }
 

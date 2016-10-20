@@ -12,6 +12,11 @@ const $favorite = $('#favorite');
 let hits;
 let images = [];
 let description;
+let language;
+let currency;
+let xRate;
+let latitude;
+let longitude;
 
 $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
   .done((data) => {
@@ -47,15 +52,29 @@ $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
     console.log("images not working");
   });
 
-  $.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
+$.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
+  .done((data) => {
+    description = data.results[0].description;
+    const country = description.slice(0, description.indexOf(' '));
+
+    $description.append(`${description}`);
+
+    $head.append(`${country} is a great choice!`);
+
+
+  })
+  .fail(() => {
+    console.log("desciption not working");
+  })
+
+  $.getJSON(`/api/travel?searchTerm=${localStorage.input}`)
     .done((data) => {
-      description = data.results[0].description;
-      const country = description.slice(0, description.indexOf(' '));
 
-      $description.append(`${description}`);
-
-      $head.append(`${country} is a great choice!`);
-
+      language = data.language[0].language;
+      currency = data.currency.name;
+      xRate = data.currency.rate;
+      latitude = data.maps.lat;
+      longitude = data.maps.long;
 
     })
     .fail(() => {
@@ -70,7 +89,7 @@ function favoriteIt(event) {
 
   const options = { //req body
     contentType: 'application/json',
-    data: JSON.stringify({ name, description, photoUrl }),
+    data: JSON.stringify({ name, description, photoUrl, language, currency, xRate, latitude, longitude }),
     dataType: 'json',
     type: 'POST',
     url: '/favorites'
