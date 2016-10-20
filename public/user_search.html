@@ -11,129 +11,102 @@
 
 <body>
 
-    <header>
-      <nav>
-        <!-- <div class="container "> -->
-          <div class="nav-wrapper teal darken-3">
-            <a href="index.html" class="brand-logo">Wander Lust</a>
-            <ul class="right side-nav" id="nav-mobile">
-              <li class="hide-on-small-only"><a href="parallax.html"><i class="mdi-navigation-arrow-back"></i></a></li>
-            </ul>
-            <a class="button-collapse" href="#" data-activates='nav-mobile'><i class="mdi-navigation-menu"></i></a>
-          </div>
-          <!-- <form>
-            <div class="input-field">
-              <input id="search" type="search" required>
-              <label for="search"><i class="material-icons">search</i></label>
-              <i class="material-icons">close</i>
-            </div>
-          </form> -->
-        <!-- </div> -->
-      </nav>
-    </header>
+  <header>
+    <nav>
+      <div class="nav-wrapper valign-wrapper teal darken-3">
+        <a href="index.html" class="brand-logo valign">Wander Lust</a>
+        <ul class="right side-nav" id="nav-mobile">
+          <li class="hide-on-small-only"><a href="parallax.html"><i class="mdi-navigation-arrow-back"></i></a></li>
+        </ul>
+        <a class="button-collapse" href="#" data-activates='nav-mobile'><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </nav>
+  </header>
 
   <main>
 
+    <div class="divider"></div>
 
+    <div id="container">
+      <form id="" class="">
+        <div id="search-row" class="row">
 
-    <!-- <div class="input-field col s3 search">
-          <input placeholder="Vietnam" id="search" type="text">
-          <label for="search"></label>
+          <div class="input-field col s2">
+            <label for="autocomplete-input" class="">
+              <input
+                type="text"
+                class="autocomplete"
+                id="autocomplete-input"
+                name="location"
+                placeholder="Where to?" />
+            </label>
+          </div>
+
+          <div class="input-field col s2">
+            <label class="">
+              <input
+              id="checkin"
+              type="date"
+              class="datepicker"
+              name="checkin"
+              placeholder="Check In" />
+              </label>
+            </div>
+
+          <div class="input-field col s2">
+            <label class="">
+              <input
+              id="checkout"
+              type="date"
+              class="datepicker"
+              name="checkout"
+              placeholder="Check Out" />
+            </label>
+          </div>
+
+          <div class="input-field col s2">
+              <label class="searchbar-guests">
+                <select id="guests" name="guests">
+                  <option value="1">1 Guest</option>
+                  <option value="2">2 Guests</option>
+                  <option value="3">3 Guests</option>
+                  <option value="4">4 Guests</option>
+                  <option value="5">5 Guests</option>
+                </select>
+              </label>
+          </div>
+
+          <div id="btn" class="col s2">
+            <a class="waves-effect waves-light btn" type="submit" name="action">Search</a>
+          </div>
+
+        </div>
+
+      </form>
     </div>
 
-    <a class="waves-effect waves-light btn" type="submit" name="action">button</a>
-    <div class="row test">
-    </div> -->
+    <!-- <div class="divider"></div> -->
 
-    <div class="row">
-
-      <div class="col-s12">
-        <ul id="slide-out" class="side-nav fixed ">
-          <li>
+    <div class="col-s12">
+      <ul id="slide-out" class="side-nav fixed">
+        <li>
             <div class="userView">
               <img class="background" src="../images/skyline.jpg">
               <a href="#!user"><img class="circle" src="../images/halongBay.jpg"></a>
-              <a href="#!name"><span class="white-text name">John Doe</span></a>
+              <a href="#!name"><span class="white-text name">Favorites</span></a>
               <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
             </div>
           </li>
-          <li><div class="divider"></div></li>
-          <li><a class="subheader">Subheader</a></li>
-          <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-          <li><div class="divider"></div></li>
-        </ul>
-        <a href="#" data-activates="slide-out" id="slide" class="button-collapse button-collapse show-on-large full valign"><i class="material-icons large">keyboard_arrow_right</i></a>
-      </div>
+      </ul>
+      <a href="#" data-activates="slide-out" id="slide" class="button-collapse show-on-large full valign"><i class="material-icons large">keyboard_arrow_right</i></a>
+    </div>
 
-      <div id="search-bar-container" class="container">
-      <div class="">
-        <div id="">
-          <div class="searchbar col-s12">
-            <form id="searchbar-form" action="/s">
-              <div class="searchbar__inputs-wrapper col-sm-10">
-              <div class="">
-                <label class="searchbar__location col-md-4 col-lg-6">
-                  <span class="screen-reader-only">
-                    Where to?
-                  </span>
-                  <input id="location" type="text" class="input-large input-contrast" autocomplete="off" name="location" placeholder="Where to?" />
-                    <div id="searchbar-location-error" class="searchbar__location-error hide">
-                      Please set location
-                    </div>
-                </label>
+    <div class="container">
+      <div class="row">
+        <div class="col s12">
 
-                <label class=" col-s12">
-                  <span class="screen-reader-only">
-                    Check In
-                  </span>
-                  <input
-                    id="checkin"
-                    type="text"
-                    class="checkin input-large input-contrast"
-                    name="checkin"
-                    placeholder="Check In" />
-                </label>
-
-                <label class="">
-                  <span class="screen-reader-only">
-                    Check Out
-                  </span>
-                  <input
-                    id="checkout"
-                    type="text"
-                    class="checkout input-large input-contrast"
-                    name="checkout"
-                    placeholder="Check Out" />
-                </label>
-
-                <label class="searchbar__guests">
-                  <span class="screen-reader-only">
-                    Number of guests
-                  </span>
-                  <div class="input-field col s12">
-                    <select id="guests" name="guests">
-                      <option value="1">1 Guest</option>
-                      <option value="2">2 Guests</option>
-                      <option value="3">3 Guests</option>
-                      <option value="4">4 Guests</option>
-                      <option value="5">5 Guests</option>
-                    </select>
-                  </div>
-                </label>
-              </div>
-            </div>
-              <div class="searchbar__submit-wrapper ">
-                <button id="submit_location" type="submit" class="searchbar__submit btn btn-primary btn-block btn-large">
-                  <span class="searchbar__submit-text">
-                    Search
-                  </span>
-                </button>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
-    </div>
     </div>
 
   </main>
@@ -156,6 +129,7 @@
    <!--  Scripts-->
    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+   <script src="js/materialize.js"></script>
    <script src="js/userSearch.js"></script>
 </body>
 </html>

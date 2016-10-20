@@ -20,7 +20,7 @@ footer.page-footer {
 body {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2)), url("../images/alaskaMountains.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../images/alaskaMountains.jpg");
   background-repeat: no-repeat;
   display: flex;
   min-height: 100vh;
@@ -29,7 +29,7 @@ body {
 }
 
 #map {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("http://wallpaper.zone/img/5483851.jpg");
+  background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("http://wallpaper.zone/img/5483851.jpg");
 }
 
 #slide {
@@ -39,3 +39,17 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+#search-row{
+  margin-top: 10%;
+  margin-left: 19%;
+}
+
+#btn {
+  margin-top: 2.5%;
+}
+#container{
+  background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6));
+  height: 100%;
+  padding-bottom: 20px;
+}
