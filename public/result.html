@@ -9,50 +9,111 @@
       <link rel="stylesheet" href="../css/styles.css">
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
    </head>
-   <body id="map">
+   <body>
       <header>
          <nav>
             <div class="nav-wrapper #f9a825 teal darken-3">
-               <a href="index.html" class="brand-logo center">Wander Lust</a>
+               <a href="index.html" class="brand-logo">Wander Lust</a>
                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
                <ul class="right hide-on-med-and-down">
-                  <li><a href="index.html">Home</a></li>
                   <li><a href="user_search.html">Favorites</a></li>
                </ul>
             </div>
          </nav>
       </header>
       <main>
-      <div class="container">
-        <div class="row">
-          <div class="col s7 offset-s3">
-            <h4 class="head"></h4>
+        <div class="row center-align btn-row"><a class="waves-effect waves-light btn col s3 offset-s6">Save this trip!</a></div>
+      <div class="row">
+        <div class="col s4 black-text info">
+          <div class="row">
+            <h5 id="country"><strong>Country:</strong> </h5>
           </div>
-        </div>
-        <section>
-        <div class="row">
-          <div class="col s12">
-            <ul class="collection">
-              <li class="collection-item description"></li>
-            </ul>
-          </div>
-        </div>
-        <div class="row">
-          <div class='col s3 offset-s4'>
-          <a class="waves-effect waves-light btn" id="favorite" type="submit" name="action">Save this Location!</a>
-        </div>
-      </div>
-      </section>
+          <div class="row map">
 
-      <div class="row topRow">
+          </div>
+          <div class="row">
+            <h5 id="language"><strong>Spoken language:</strong> </h5>
+          </div>
+          <div class="row">
+            <h5 id="currency"><strong>Currency:</strong> </h5>
+          </div>
+          <div class="row">
+            <h5 id="neighbors"><strong>Neighboring Countries:</strong> </h5>
+          </div>
+          <div class="row table">
+            <table>
+        <thead>
+          <tr>
+              <th data-field="id">Month</th>
+              <th data-field="name">Average Temperature</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>January</td>
+            <td id="jan"></td>
+          </tr>
+          <tr>
+            <td>February</td>
+            <td id="feb"></td>
+          </tr>
+          <tr>
+            <td>March</td>
+            <td id="mar"></td>
+          </tr>
+          <tr>
+            <td>April</td>
+            <td id="apr"></td>
+          </tr>
+          <tr>
+            <td>May</td>
+            <td id="may"></td>
+          </tr>
+          <tr>
+            <td>June</td>
+            <td id="jun"></td>
+          </tr>
+          <tr>
+            <td>July</td>
+            <td id="jul"></td>
+          </tr>
+          <tr>
+            <td>August</td>
+            <td id="aug"></td>
+          </tr>
+          <tr>
+            <td>September</td>
+            <td id="sep"></td>
+          </tr>
+          <tr>
+            <td>October</td>
+            <td id="oct"></td>
+          </tr>
+          <tr>
+            <td>November</td>
+            <td id="nov"></td>
+          </tr>
+          <tr>
+            <td>December</td>
+            <td id="dec"></td>
+          </tr>
+        </tbody>
+      </table>
+          </div>
+        </div>
+        <div class="col s7 images">
+          <div class="row">
+            <div class="col s12">
+              <ul class="collection">
+                <li class="collection-item description"></li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
       </div>
-      <div class="row middleRow">
-      </div>
-      <div class="row middleRow2">
-      </div>
-      <div class="row bottomRow">
-      </div>
-  </div>
 
 
       </main>

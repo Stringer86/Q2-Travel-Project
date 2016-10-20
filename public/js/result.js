@@ -1,13 +1,28 @@
 (function() {
 'use strict';
 
-const $topRow = $('.topRow');
-const $middleRow = $('.middleRow');
-const $middleRow2 = $('.middleRow2');
-const $bottomRow = $('.bottomRow');
+
 const $description = $('.description');
-const $head = $('.head');
-const $favorite = $('#favorite');
+const $btn = $('.btn');
+const $images = $('.images');
+const $country = $('#country');
+const $language = $('#language');
+const $currency = $('#currency');
+const $neighbors = $('#neighbors');
+
+const $jan = $('#jan');
+const $feb = $('#feb');
+const $mar = $('#mar');
+const $apr = $('#apr');
+const $may = $('#may');
+const $jun = $('#jun');
+const $jul = $('#jul');
+const $aug = $('#aug');
+const $sep = $('#sep');
+const $oct = $('#oct');
+const $nov = $('#nov');
+const $dec = $('#dec');
+
 
 let hits;
 let images = [];
@@ -26,24 +41,14 @@ $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
     for (let i = 0; i < hits.length; i++) {
       images.push(hits[i].webformatURL);
     }
+    console.log(images);
 
     for (let i = 0; i < images.length; i++) {
-      if (i < 3) {
-        $topRow.append(`<div class="col s4"><img class="materialboxed" width="300px" height="300px" src="${images[i]}">
+        $images.append(`<div class="col s4"><img class="materialboxed" width="200px" height="200px" src="${images[i]}">
         </div>`);
-      }
-      else if (i < 6){
-        $middleRow.append(`<div class="col s4"><img class="materialboxed" width="300px" height="300px" src="${images[i]}">
-        </div>`);
-      }
-      else if (i < 9){
-        $middleRow2.append(`<div class="col s4"><img class="materialboxed" width="300px" height="300px" src="${images[i]}">
-        </div>`);
-      }
-      else {
-        $bottomRow.append(`<div class="col s4"><img class="materialboxed" width="300px" height="300px" src="${images[i]}">
-        </div>`);
-      }
+        if ((i - 2) % 3 === 0) {
+          $images.append(`<div class=row></div>`)
+        }
     }
     $('.materialboxed').materialbox();
 
@@ -52,14 +57,11 @@ $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
     console.log("images not working");
   });
 
-$.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
+  $.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
   .done((data) => {
     description = data.results[0].description;
-    const country = description.slice(0, description.indexOf(' '));
 
     $description.append(`${description}`);
-
-    $head.append(`${country} is a great choice!`);
 
 
   })
@@ -70,11 +72,43 @@ $.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
   $.getJSON(`/api/travel?searchTerm=${localStorage.input}`)
     .done((data) => {
 
+      let country = data.names.name;
+
+      let neighArray = data.neighbors;
+
+      let neighbors = neighArray.map((element) => {
+        return element.name;
+      });
+
+      let temperatures = data.weather;
+
       language = data.language[0].language;
       currency = data.currency.name;
       xRate = data.currency.rate;
       latitude = data.maps.lat;
       longitude = data.maps.long;
+
+    $country.append(country);
+    $language.append(language);
+    $currency.append(currency);
+
+    for (var i = 0; i < neighbors.length; i++) {
+      $neighbors.append(`${neighbors[i]}, `);
+    }
+
+    $jan.append(parseFloat(temperatures.January.tAvg).toFixed(2) + ' Celcius');
+    $feb.append(parseFloat(temperatures.February.tAvg).toFixed(2) + ' Celcius');
+    $mar.append(parseFloat(temperatures.March.tAvg).toFixed(2) + ' Celcius');
+    $apr.append(parseFloat(temperatures.April.tAvg).toFixed(2) + ' Celcius');
+    $may.append(parseFloat(temperatures.May.tAvg).toFixed(2) + ' Celcius');
+    $jun.append(parseFloat(temperatures.June.tAvg).toFixed(2) + ' Celcius');
+    $jul.append(parseFloat(temperatures.July.tAvg).toFixed(2) + ' Celcius');
+    $aug.append(parseFloat(temperatures.August.tAvg).toFixed(2) + ' Celcius');
+    $sep.append(parseFloat(temperatures.September.tAvg).toFixed(2) + ' Celcius');
+    $oct.append(parseFloat(temperatures.October.tAvg).toFixed(2) + ' Celcius');
+    $nov.append(parseFloat(temperatures.November.tAvg).toFixed(2) + ' Celcius');
+    $dec.append(parseFloat(temperatures.December.tAvg).toFixed(2) + ' Celcius');
+
 
     })
     .fail(() => {
@@ -106,7 +140,7 @@ function favoriteIt(event) {
 
 }
 
-$favorite.click(favoriteIt);
+$btn.click(favoriteIt);
 
 
 

@@ -33,7 +33,7 @@ let xRate;
 let latitude;
 let longitude;
 
-$.getJSON(`/api/images?searchTerm=Croatia`)
+$.getJSON(`/api/images?searchTerm=C${localStorage.input}`)
   .done((data) => {
     hits = data.hits;
 
@@ -56,7 +56,7 @@ $.getJSON(`/api/images?searchTerm=Croatia`)
     console.log("images not working");
   });
 
-$.getJSON(`/api/descriptions?searchTerm=Croatia`)
+  $.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
   .done((data) => {
     description = data.results[0].description;
 
@@ -68,7 +68,7 @@ $.getJSON(`/api/descriptions?searchTerm=Croatia`)
     console.log("desciption not working");
   })
 
-  $.getJSON(`/api/travel?searchTerm=Croatia`)
+  $.getJSON(`/api/travel?searchTerm=${localStorage.input}`)
     .done((data) => {
 
       let country = data.names.name;

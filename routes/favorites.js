@@ -43,7 +43,7 @@ router.get('/favorites', authorize, (req, res, next) => {
 router.post('/favorites', authorize, (req, res, next) => {
   const { name, description, photoUrl, language, currency, xRate, latitude, longitude } = req.body;
   const { userId } = req.token;
-  
+
 
   knex('destinations')
     .where('name', name)
@@ -84,31 +84,28 @@ router.post('/favorites', authorize, (req, res, next) => {
 
 
 router.delete('/favorites', authorize, (req, res, next) => {
-  let favorite;
-  const  { /* DestinaitonId */ }  = req.body;
+  const { userId } = req.token;
+  const { destination_id } = req.body;
 
-  knex('destinations')
-   .where('destination_id', destinationId)
-   .first()
-   .then((row) => {
-     if (!row) return next(boom.create(404, 'Destination not found'));
-
-      favorite = row;
+  knex('favorites')
+    .where('destination_id', destinationId)
+    .first()
+    .then((row) => {
+      if (!row) {
+        throw boom.create(404, 'Favorite not found');
+      }
 
       return knex('favorites')
-        .del()
-        .where('book_id', destinationId);
+        .where('destination_id', destinationId)
+        .where('user_id', userId)
+        .del();
     })
     .then(() => {
-      delete favorite.id;
-      const jsonFavorite = camelizeKeys(favorite);
-
-      res.clearCookie('favorites');
-      res.send(jsonFavorite);
+      res.send(camelizeKeys({ destinationId, userId }));
     })
-      .catch((err) => {
-        next(err);
-      });
+    .catch((err) => {
+      next(err);
+    });
 });
 
 module.exports = router;
