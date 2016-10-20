@@ -33,9 +33,9 @@ body {
 
 #map {
   background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("http://wallpaper.zone/img/5483851.jpg");
-    width: 100%;
-    height: 400px;
-    background-color: grey;
+  width: 100%;
+  height: 400px;
+  background-color: grey;
       }
 
 
