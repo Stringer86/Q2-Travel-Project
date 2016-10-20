@@ -131,7 +131,7 @@ function favoriteIt(event) {
 
   $.ajax(options)
     .done(() => {
-          Materialize.toast('Added book to your destination', 3000);
+          Materialize.toast('Added destination to your favorites', 3000);
         })
         .fail(() => {
           Materialize.toast('Unable to add this destination to your favorites', 3000);

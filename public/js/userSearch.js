@@ -44,7 +44,7 @@ $.getJSON(`/favorites`)
 
   })
   .fail(() => {
-    window.location.href = `/index.html`
+    window.location.href = `/404.html`
   })
 
 function searchIt(event) {
