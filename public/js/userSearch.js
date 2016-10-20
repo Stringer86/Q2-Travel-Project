@@ -22,13 +22,13 @@ $.getJSON(`/favorites`)
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
               <div class="divider"></div>
-              <p><a type="submit" class="btn delete" id="${data[i].destinationId}">Delete</a></p>
+              <p><a type="submit" class="btn search" id="${data[i].name}">Search</a></p>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
               <p>${data[i].description}</p>
                 <div class="divider"></div>
-              <p><a type="submit" class="btn search" id="${data[i].name}">Search</a></p>
+                <p><a type="submit" class="btn delete" id="${data[i].destinationId}">Delete</a></p>
             </div>
           </div>
         </div>`
