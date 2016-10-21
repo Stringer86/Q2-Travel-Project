@@ -1,188 +1,175 @@
 (function() {
-'use strict';
+  'use strict';
 
-const $countrybtn = $('.countrybtn');
-const $citybtn = $('.citybtn');
-const $city = $('.city');
-const $search = $('.autocomplete');
-const $images = $('#images');
-const $test = $('.test');
-const $logout = $('#logout');
+  const $countrybtn = $('.countrybtn');
+  const $citybtn = $('.citybtn');
+  const $city = $('.city');
+  const $country = $('.autocomplete');
+  const $images = $('#images');
+  const $logout = $('#logout');
 
-let ids = [];
-
-$.getJSON(`/favorites`)
-  .done((data) => {
-
-    for (let i = 0; i < data.length; i++) {
-      $images.append(
-        `<div class="col s6">
-          <div class="card small">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="${data[i].photoUrl}" height="300px" width="100px">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
-              <div class="divider"></div>
-              <p><a type="submit" class="btn search" id="${data[i].name}">view</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
-              <p>${data[i].description}</p>
+  $.getJSON(`/favorites`)
+    .done((data) => {
+      for (let i = 0; i < data.length; i++) {
+        $images.append(
+          `<div class="col s6">
+            <div class="card small">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img class="activator" src="${data[i].photoUrl}" height="300px" width="100px">
+              </div>
+              <div class="card-content">
+                <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
                 <div class="divider"></div>
-                <p><a type="submit" class="btn delete" id="${data[i].destinationId}">Delete</a></p>
+                <p><a type="submit" class="btn search" id="${data[i].name}">view</a></p>
+              </div>
+              <div class="card-reveal">
+                <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
+                <p>${data[i].description}</p>
+                  <div class="divider"></div>
+                  <p><a type="submit" class="btn delete" id="${data[i].destinationId}">Delete</a></p>
+              </div>
             </div>
-          </div>
-        </div>`
-      )
+          </div>`
+        );
+      }
+      const $del = $('.delete');
+
+      $del.click(deleteFav);
+
+      const $search = $('.search');
+
+      $search.click(searchFav);
+    })
+    .fail(() => {
+      window.location.href = '/404.html';
+    });
+
+  function countrySearch(event) {
+    event.preventDefault();
+
+    const searchInput = $country.val().trim();
+
+    localStorage.input = searchInput;
+
+    if (!searchInput) {
+      return Materialize.toast('Search must not be blank', 3000);
     }
-    let $del = $('.delete')
-    $del.click(deleteFav);
 
-    let $search = $('.search')
-    $search.click(searchFav);
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({ searchInput }),
+      dataType: 'json',
+      type: 'GET',
+      url: '/api/images'
+    };
 
-
-
-  })
-  .fail(() => {
-    window.location.href = `/404.html`
-  })
-
-function countrySearch(event) {
-  event.preventDefault();
-
-  const searchInput = $search.val().trim();
-  localStorage.input = searchInput;
-
-  if (!searchInput) {
-    return Materialize.toast('Search must not be blank', 3000);
+    $.ajax(options)
+      .done(() => {
+        window.location.href = `/result.html?${searchInput}`;
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
   }
 
-  const options = {
-    contentType: 'application/json',
-    data: JSON.stringify({ searchInput }),
-    dataType: 'json',
-    type: 'GET',
-    url: '/api/images'
-  };
+  function citySearch(event) {
+    event.preventDefault();
 
-  $.ajax(options)
-    .done(() => {
-      console.log("hello");
-      window.location.href = `/result.html?${searchInput}`;
-    })
-    .fail(($xhr) => {
-      Materialize.toast($xhr.responseText, 3000);
-    });
+    const searchInput = $city.val().trim();
 
-}
+    localStorage.input = searchInput;
 
-function citySearch(event) {
-  event.preventDefault();
+    if (!searchInput) {
+      return Materialize.toast('Search must not be blank', 3000);
+    }
 
-  const searchInput = $city.val().trim();
-  localStorage.input = searchInput;
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({ searchInput }),
+      dataType: 'json',
+      type: 'GET',
+      url: '/api/images/city'
+    };
 
-  if (!searchInput) {
-    return Materialize.toast('Search must not be blank', 3000);
+    $.ajax(options)
+      .done(() => {
+        window.location.href = `/cityResult.html?${searchInput}`;
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
   }
 
-  const options = {
-    contentType: 'application/json',
-    data: JSON.stringify({ searchInput }),
-    dataType: 'json',
-    type: 'GET',
-    url: '/api/images/city'
-  };
+  function deleteFav(event) {
+    event.preventDefault();
+    const destinationId = this.id;
 
-  $.ajax(options)
-    .done(() => {
-      console.log("hello");
-      window.location.href = `/cityResult.html?${searchInput}`;
-    })
-    .fail(($xhr) => {
-      Materialize.toast($xhr.responseText, 3000);
-    });
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({ destinationId }),
+      dataType: 'json',
+      type: 'DELETE',
+      url: '/favorites'
+    };
 
-}
-
-function deleteFav(event) {
-  event.preventDefault();
-  const destinationId = this.id;
-
-  const options = {
-    contentType: 'application/json',
-    data: JSON.stringify({ destinationId }),
-    dataType: 'json',
-    type: 'DELETE',
-    url: '/favorites'
+    $.ajax(options)
+      .done(() => {
+        window.location.href = '/user_search.html';
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
   }
 
-  $.ajax(options)
-    .done(() => {
-      window.location.href = `/user_search.html`
-    })
-    .fail(($xhr) => {
-      Materialize.toast($xhr.responseText, 3000);
-    })
+  function searchFav(event) {
+    event.preventDefault();
 
-}
+    const searchInput = this.id;
 
-function searchFav(event) {
-  event.preventDefault();
+    localStorage.input = searchInput;
 
-  const searchInput = this.id
-  localStorage.input = searchInput;
+    if (!searchInput) {
+      return Materialize.toast('Search must not be blank', 3000);
+    }
 
-  if (!searchInput) {
-    return Materialize.toast('Search must not be blank', 3000);
+    const options = {
+      contentType: 'application/json',
+      data: JSON.stringify({ searchInput }),
+      dataType: 'json',
+      type: 'GET',
+      url: '/api/images'
+    };
+
+    $.ajax(options)
+      .done(() => {
+        window.location.href = `/result.html?${searchInput}`;
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
   }
 
-  const options = {
-    contentType: 'application/json',
-    data: JSON.stringify({ searchInput }),
-    dataType: 'json',
-    type: 'GET',
-    url: '/api/images'
-  };
+  function logout(event) {
+    event.preventDefault();
 
-  $.ajax(options)
-    .done(() => {
-      console.log("hello");
-      window.location.href = `/result.html?${searchInput}`;
-    })
-    .fail(($xhr) => {
-      Materialize.toast($xhr.responseText, 3000);
-    });
+    const options = {
+      contentType: 'application/json',
+      dataType: 'json',
+      type: 'DELETE',
+      url: '/token'
+    };
 
-}
+    $.ajax(options)
+      .done(() => {
+        window.location.href = '/index.html';
+      })
+      .fail(($xhr) => {
+        Materialize.toast($xhr.responseText, 3000);
+      });
+  }
 
-function logout(event) {
- event.preventDefault();
+  $countrybtn.click(countrySearch);
+  $citybtn.click(citySearch);
 
-  const options = {
-    contentType: 'application/json',
-    dataType: 'json',
-    type: 'DELETE',
-    url: '/token'
-  };
-
-  $.ajax(options)
-    .done(() => {
-      console.log("working");
-      window.location.href = `/index.html`;
-    })
-    .fail(($xhr) => {
-      console.log("not working");
-      Materialize.toast($xhr.responseText, 3000);
-    });
-}
-
-$countrybtn.click(countrySearch);
-$citybtn.click(citySearch);
-
-$logout.click(logout);
-
-
+  $logout.click(logout);
 })();

@@ -1,99 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">  <link rel="stylesheet" href="css/styles.css">
-  <title>Q2 Project</title>
-</head>
-
-<body>
-
-  <header>
-     <nav>
-        <div class="nav-wrapper #f9a825 teal darken-3">
-           <a href="index.html" class="brand-logo">Wander Lust</a>
-           <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
-           <ul class="right hide-on-med-and-down">
-              <li id="logout"><a href="user_search.html">Logout</a></li>
-           </ul>
-        </div>
-     </nav>
-  </header>
-
-  <main>
-    <div class="row topRow"></div>
-    <div id="container">
-        <div id="search-row" class="row valign-wrapper pad">
-
-          <div class="col s4 offset-s1">
-            <label for="autocomplete-input">
-              <input
-                type="text"
-                class="autocomplete row country"
-                name="location"
-                placeholder="Explore a Country..."/>
-            </label>
-          </div>
-
-          <div id="btn" class="col s4 searchButton">
-            <a class="waves-effect waves-light countrybtn btn" type="submit" name="action">Search</a>
-          </div>
-          <div class="col s4 offset-s1">
-            <label for="autocomplete-input">
-              <input
-                type="text"
-                class="row city"
-                name="location"
-                placeholder="Explore a City..."/>
-            </label>
-          </div>
-          <div id="citybtn" class="col s4">
-            <a class="waves-effect waves-light citybtn btn" type="submit" name="action">Search</a>
-          </div>
-
-        </div>
-
-    </div>
-
-    <div class="divider"></div>
-
-    <div class="row">
-      <div class="col s12 s12 m6 l6">
-        <div id="map">
-        </div>
-      </div>
-      <div  id="images" class="col s12 m6 l6 offset-s">
-        <h3>The Places You Will Go</h3>
-      </div>
-    </div>
-
-  </main>
-
-  <footer class="page-footer teal darken-3">
-     <div class="container">
-       <div class="row">
-         <div class="col l4 s12">
-           <h5 class="white-text"></h5>
-         </div>
-       </div>
-     </div>
-     <div class="footer-copyright">
-       <div class="container">
-       <a  class="grey-text text-lighten-4 right" href=""></a>
-       </div>
-     </div>
-   </footer>
-
-   <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <script src="js/mat.js"></script>
-  <script src="js/userSearch.js"></script>
-  <script async defer
-     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIxboLZoJxYVpEN1jaWtlDnRPs1ThL3IE&callback=initMap">
-     </script>
-  <script src="js/map.js"></script>
- </body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
+        <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Q2 Project</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <div class="nav-wrapper #f9a825 teal darken-3">
+                    <a href="index.html" class="brand-logo">Wander Lust</a>
+                    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                    <ul class="right hide-on-med-and-down">
+                        <li id="logout"><a href="user_search.html">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <div class="row topRow"></div>
+            <div id="container">
+                <div id="search-row" class="row valign-wrapper pad">
+                    <div class="col s4 offset-s1">
+                        <label for="autocomplete-input">
+                        <input
+                            type="text"
+                            class="autocomplete row country"
+                            name="location"
+                            placeholder="Explore a Country..."/>
+                        </label>
+                    </div>
+                    <div id="btn" class="col s4 searchButton">
+                        <a class="waves-effect waves-light countrybtn btn" type="submit" name="action">Search</a>
+                    </div>
+                    <div class="col s4 offset-s1">
+                        <label for="autocomplete-input">
+                        <input
+                            type="text"
+                            class="row city"
+                            name="location"
+                            placeholder="Explore a City..."/>
+                        </label>
+                    </div>
+                    <div id="citybtn" class="col s4">
+                        <a class="waves-effect waves-light citybtn btn" type="submit" name="action">Search</a>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col s12 s12 m6 l6">
+                    <div id="map">
+                    </div>
+                </div>
+                <div  id="images" class="col s12 m6 l6 offset-s">
+                    <h3>The Places You Will Go</h3>
+                </div>
+            </div>
+        </main>
+        <footer class="page-footer teal darken-3">
+            <div class="container">
+                <div class="row">
+                    <div class="col l4 s12">
+                        <h5 class="white-text"></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    <a  class="grey-text text-lighten-4 right" href=""></a>
+                </div>
+            </div>
+        </footer>
+        <!--  Scripts-->
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+        <script src="js/mat.js"></script>
+        <script src="js/userSearch.js"></script>
+        <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIxboLZoJxYVpEN1jaWtlDnRPs1ThL3IE&callback=initMap"></script>
+        <script src="js/map.js"></script>
+    </body>
 </html>
