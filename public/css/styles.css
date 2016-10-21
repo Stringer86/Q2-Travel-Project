@@ -20,12 +20,17 @@ footer.page-footer {
 body {
   height: 100%;
   width: 100%;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../images/alaskaMountains.jpg");
-  background-repeat: no-repeat;
+  /*background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../images/alaskaMountains.jpg");*/
+  /*background-repeat: no-repeat;*/
+  /*background: transparent url('../images/alaskaMountains.jpg'), url('../images/greece-island.jpg'), url('../images/turkey.jpg'), 50% 0 scroll repeat-y;*/
+  /*background:
+    url(../images/alaskaMountains.jpg)  no-repeat,  /* On top,    like z-index: 4; */
+    url(../images/greece-island.jpg)  no-repeat,   /*            like z-index: 3; */
+    url(../images/turkey.jpg) repeat-y;              /* On bottom, like z-index: 1; */*/
+  background-color: #F0F0F0;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  background-image: url('../images/alaskaMountains.jpg');
   font-family: 'Lato', sans-serif;
 
 }
@@ -54,9 +59,10 @@ main {
 
 #container{
   background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6));
-
 }
-
+#images{
+  margin-top: 30px;
+}
 
 .btn-row {
   margin-top: 50px;
