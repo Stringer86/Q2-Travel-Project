@@ -1,7 +1,9 @@
 (function() {
 'use strict';
 
-const $btn = $('.btn');
+const $countrybtn = $('.countrybtn');
+const $citybtn = $('.citybtn');
+const $city = $('.city');
 const $search = $('.autocomplete');
 const $images = $('#images');
 const $test = $('.test');
@@ -47,7 +49,7 @@ $.getJSON(`/favorites`)
     window.location.href = `/404.html`
   })
 
-function searchIt(event) {
+function countrySearch(event) {
   event.preventDefault();
 
   const searchInput = $search.val().trim();
@@ -76,10 +78,10 @@ function searchIt(event) {
 
 }
 
-function searchCity(event) {
+function citySearch(event) {
   event.preventDefault();
 
-  const searchInput = $search.val().trim();
+  const searchInput = $city.val().trim();
   localStorage.input = searchInput;
 
   if (!searchInput) {
@@ -91,13 +93,13 @@ function searchCity(event) {
     data: JSON.stringify({ searchInput }),
     dataType: 'json',
     type: 'GET',
-    url: '/api/images'
+    url: '/api/images/city'
   };
 
   $.ajax(options)
     .done(() => {
       console.log("hello");
-      window.location.href = `/result.html?${searchInput}`;
+      window.location.href = `/cityResult.html?${searchInput}`;
     })
     .fail(($xhr) => {
       Materialize.toast($xhr.responseText, 3000);
@@ -177,7 +179,9 @@ function logout(event) {
     });
 }
 
-$btn.click(searchIt);
+$countrybtn.click(countrySearch);
+$citybtn.click(citySearch);
+
 $logout.click(logout);
 
 
