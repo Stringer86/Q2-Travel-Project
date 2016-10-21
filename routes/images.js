@@ -48,4 +48,28 @@ router.get('/api/images', (req, res, next) => {
       });
 })
 
+router.get('/api/images/city', (req, res, next) => {
+  const { searchTerm } = req.query;
+
+  let options = { method: 'GET',
+  url: 'https://pixabay.com/api/',
+  qs:
+   { q: searchTerm,
+     category: 'city',
+     order: 'popular',
+     image_type: 'photo',
+     key: '3524767-02f5ba794561ee4931dcf448b' },
+  headers:
+   { 'postman-token': 'f31842c3-884f-ff6c-bf51-b6c0d6f4d809',
+     'cache-control': 'no-cache',
+     accept: 'application/json' } };
+
+    request(options, function (error, response, data) {
+        if (error) throw new Error(error);
+
+        res.send(data);
+
+      });
+})
+
 module.exports = router;
