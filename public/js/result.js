@@ -119,7 +119,7 @@ function favoriteIt(event) {
   event.preventDefault();
 
   const name = localStorage.input.charAt(0).toUpperCase() + localStorage.input.slice(1);;
-  const photoUrl = images[3];
+  const photoUrl = images[2];
 
   const options = { //req body
     contentType: 'application/json',

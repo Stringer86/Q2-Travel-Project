@@ -30,50 +30,44 @@ body {
 
 
 #map {
+  margin-top: 30px;
   background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("http://wallpaper.zone/img/5483851.jpg");
   width: 100%;
   height: 500px;
   background-color: grey;
 }
 
-#slide {
-  padding-top: 45%;
-}
 
-  main {
+main {
     flex: 1 0 auto;
   }
-
-#search-row{
-  margin-top: 10%;
-  margin-left: 19%;
-}
 
 #btn {
   margin-top: 3%;
 }
 #container{
   background-image: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6));
-  height: 100%;
-  padding-bottom: 20px;
+
 }
+
 
 .btn-row {
   margin-top: 50px;
 }
-.info {
-
-}
-
-.images{
-
-}
 
 .autocomplete-content{
   position: absolute;
-  width: 28%;
+  width: 18%;
 }
 
 .divider{
   margin-bottom: 5px;
+}
+
+.pad {
+  padding-top: 2%;
+}
+
+.searchButton {
+  margin-bottom: 3%;
 }

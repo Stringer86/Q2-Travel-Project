@@ -23,43 +23,49 @@
   </header>
 
   <main>
-
-    <div class="divider"></div>
-
+    <div class="row topRow"></div>
     <div id="container">
-      <form id="" class="">
-        <div id="search-row" class="row">
+        <div id="search-row" class="row valign-wrapper pad">
 
-          <div class="input-field col s8">
-            <label for="autocomplete-input" class="">
+          <div class="col s4 offset-s1">
+            <label for="autocomplete-input">
               <input
                 type="text"
-                class="autocomplete"
+                class="autocomplete row"
                 name="location"
-                placeholder="Where to?" />
+                placeholder="Explore a Country..."/>
             </label>
           </div>
 
-          <div id="btn" class="col s4">
+          <div id="btn" class="col s4 searchButton">
+            <a class="waves-effect waves-light btn" type="submit" name="action">Search</a>
+          </div>
+          <div class="col s4 offset-s1">
+            <label for="autocomplete-input">
+              <input
+                type="text"
+                class="autocomplete row city"
+                name="location"
+                placeholder="Explore a City..."/>
+            </label>
+          </div>
+          <div id="citybtn" class="col s4">
             <a class="waves-effect waves-light btn" type="submit" name="action">Search</a>
           </div>
 
         </div>
-      </form>
+
     </div>
 
     <div class="divider"></div>
 
     <div class="row">
       <div class="col s12 s12 m6 l6">
-        <h3>My Favorite Locations</h3>
         <div id="map">
         </div>
       </div>
       <div  id="images" class="col s12 m6 l6 offset-s">
-        <h3>My Favorite Locations</h3>
-
-
+        <h3>The Places You Will Go</h3>
       </div>
     </div>
 

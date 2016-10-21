@@ -14,7 +14,7 @@ $.getJSON(`/favorites`)
       locations.push([place, lat, long, i]);
     }
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 1,
       center: new google.maps.LatLng(34.5133, -94.1629),
       mapTypeId: google.maps.MapTypeId.ROADMAP,

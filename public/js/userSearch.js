@@ -17,12 +17,12 @@ $.getJSON(`/favorites`)
         `<div class="col s6">
           <div class="card small">
             <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="${data[i].photoUrl}">
+              <img class="activator" src="${data[i].photoUrl}" height="300px" width="100px">
             </div>
             <div class="card-content">
               <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
               <div class="divider"></div>
-              <p><a type="submit" class="btn search" id="${data[i].name}">Search</a></p>
+              <p><a type="submit" class="btn search" id="${data[i].name}">view</a></p>
             </div>
             <div class="card-reveal">
               <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
@@ -49,7 +49,36 @@ $.getJSON(`/favorites`)
 
 function searchIt(event) {
   event.preventDefault();
-  console.log("hello");
+
+  const searchInput = $search.val().trim();
+  localStorage.input = searchInput;
+
+  if (!searchInput) {
+    return Materialize.toast('Search must not be blank', 3000);
+  }
+
+  const options = {
+    contentType: 'application/json',
+    data: JSON.stringify({ searchInput }),
+    dataType: 'json',
+    type: 'GET',
+    url: '/api/images'
+  };
+
+  $.ajax(options)
+    .done(() => {
+      console.log("hello");
+      window.location.href = `/result.html?${searchInput}`;
+    })
+    .fail(($xhr) => {
+      Materialize.toast($xhr.responseText, 3000);
+    });
+
+}
+
+function searchCity(event) {
+  event.preventDefault();
+
   const searchInput = $search.val().trim();
   localStorage.input = searchInput;
 
