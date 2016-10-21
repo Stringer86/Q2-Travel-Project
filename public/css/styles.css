@@ -20,14 +20,20 @@ footer.page-footer {
 body {
   height: 100%;
   width: 100%;
-  /*background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../images/alaskaMountains.jpg");*/
+  background-image: linear-gradient( rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)), url("../images/alaskaMountains.jpg");
   background-repeat: no-repeat;
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-  /*background-image: url('../images/alaskaMountains.jpg');*/
+  background-image: url('../images/alaskaMountains.jpg');
+  font-family: 'Lato', sans-serif;
+
 }
 
+.brand-logo{
+  font-family: 'Arvo', serif;
+  font-size: 45px;
+}
 
 #map {
   margin-top: 30px;
