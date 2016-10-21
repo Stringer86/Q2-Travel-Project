@@ -1,7 +1,7 @@
 $(document).ready(function() {
   'use strict';
 
-  var data = {
+  const data = {
     "Afghanistan": null,
     "Albania": null,
     "Algeria": null,
@@ -207,26 +207,21 @@ $(document).ready(function() {
     "Yemen": null,
     "Zambia": null,
     "Zimbabwe": null
-  }
-
+  };
 
   $('select').material_select();
 
   $('.datepicker').pickadate({
-      selectMonths: true, // Creates a dropdown to control month
-    });
-
+    selectMonths: true // Creates a dropdown to control month
+  });
 
   $('.button-collapse').sideNav({
-      menuWidth: 600, // Default is 240
-      edge: 'left', // Choose the horizontal origin
-      closeOnClick: true
-    }
-  );
+    menuWidth: 600, // Default is 240
+    edge: 'left', // Choose the horizontal origin
+    closeOnClick: true
+  });
 
   $('input.autocomplete').autocomplete({
-      data: data
-    });
-
-
+    data: data
+  });
 });
