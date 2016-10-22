@@ -1,9 +1,11 @@
 module.exports = {
   extends: [
     'ryansobol/browser',
+    'ryansobol/es5',
     'ryansobol/es6',
-    'ryansobol/node',
     'ryansobol/jquery',
-    'ryansobol/materialize'
+    'ryansobol/node',
+    'ryansobol/materialize',
+    'ryansobol/express'
   ]
 };

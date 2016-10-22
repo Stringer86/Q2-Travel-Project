@@ -17,17 +17,15 @@ app.disable('x-powered-by');
 
 switch (app.get('env')) {
   case 'development':
-  app.use(morgan('dev'));
-  break;
+    app.use(morgan('dev'));
+    break;
 
   case 'production':
-  app.use(morgan('short'));
-  break;
+    app.use(morgan('short'));
+    break;
 
   default:
 }
-
-console.log('Hello');
 
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -43,15 +41,12 @@ app.use((req, res, next) => {
   res.sendStatus(406);
 });
 
-
 const users = require('./routes/users');
 const token = require('./routes/token');
 const descriptions = require('./routes/descriptions');
 const images = require('./routes/images');
 const favorites = require('./routes/favorites');
 const travel = require('./routes/travel');
-
-
 
 app.use(users);
 app.use(token);
@@ -60,8 +55,8 @@ app.use(images);
 app.use(favorites);
 app.use(travel);
 
-app.use((_req, res) =>{
-    res.sendStatus(404);
+app.use((_req, res) => {
+  res.sendStatus(404);
 });
 
 app.use((err, _req, res, _next) => {
@@ -73,7 +68,6 @@ app.use((err, _req, res, _next) => {
   }
 
   if (err.status) {
-    console.log('hello');
     return res
       .status(err.status)
       .set('Content-Type', 'text/plain')

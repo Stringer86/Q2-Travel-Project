@@ -1,7 +1,7 @@
+'use strict';
 (function() {
-  'use strict';
 
-
+// eslint-disable-next-line max-statements
   const $description = $('.description');
   const $btn = $('.btn');
   const $images = $('.images');
@@ -24,8 +24,11 @@
       }
 
       for (let i = 0; i < images.length; i++) {
-        $images.append(`<div class="col s3"><img class="materialboxed" width="200px" height="200px" src="${images[i]}">
-        </div>`);
+        $images.append(
+          `<div class="col s3">
+              <img class="materialboxed" width="200px" height="200px"
+              src="${images[i]}">
+            </div>`);
 
         if ((i - 3) % 4 === 0) {
           $images.append('<div class=row></div>');
@@ -34,7 +37,7 @@
       $('.materialboxed').materialbox();
     })
     .fail(() => {
-      console.log('images not working');
+      Materialize.toast('Images not loading', 3000);
     });
 
   $.getJSON(`/api/descriptions?searchTerm=${localStorage.input}`)
@@ -44,18 +47,28 @@
     $description.append(`${description}`);
   })
   .fail(() => {
-    console.log('desciption not working');
+    Materialize.toast('Description not loading', 3000);
   });
 
   function favoriteIt(event) {
     event.preventDefault();
 
-    const name = localStorage.input.charAt(0).toUpperCase() + localStorage.input.slice(1);
+    const name =
+      localStorage.input.charAt(0).toUpperCase() + localStorage.input.slice(1);
     const photoUrl = images[2];
 
     const options = { // req body
       contentType: 'application/json',
-      data: JSON.stringify({ name, description, photoUrl, language, currency, xRate, latitude, longitude }),
+      data: JSON.stringify({
+        name,
+        description,
+        photoUrl,
+        language,
+        currency,
+        xRate,
+        latitude,
+        longitude
+      }),
       dataType: 'json',
       type: 'POST',
       url: '/favorites'
@@ -66,7 +79,8 @@
         Materialize.toast('Added destination to your favorites', 3000);
       })
       .fail(() => {
-        Materialize.toast('Unable to add this destination to your favorites', 3000);
+        Materialize.toast(
+          'Unable to add this destination to your favorites', 3000);
       });
   }
 

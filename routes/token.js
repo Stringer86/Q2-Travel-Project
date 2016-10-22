@@ -7,9 +7,6 @@ const bcrypt = require('bcrypt-as-promised');
 const jwt = require('jsonwebtoken');
 const { camelizeKeys } = require('humps');
 
-const ev = require('express-validation');
-const validations = require('../validations/token');
-
 const router = express.Router();
 
 const authorize = function(req, res, next) {
@@ -18,7 +15,6 @@ const authorize = function(req, res, next) {
     next();
   });
 };
-
 
 router.post('/token', authorize, (req, res, next) => {
   const { email, password } = req.body;
@@ -61,7 +57,7 @@ router.post('/token', authorize, (req, res, next) => {
     });
 });
 
-router.delete('/token', (req, res, next) => {
+router.delete('/token', (req, res, _next) => {
   res.clearCookie('token');
   res.status(200);
   res.send(true);

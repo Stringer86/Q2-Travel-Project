@@ -6,9 +6,6 @@ const jwt = require('jsonwebtoken');
 const knex = require('../knex');
 const { camelizeKeys, decamelizeKeys } = require('humps');
 
-const ev = require('express-validation');
-const validations = require('../validations/users');
-
 // eslint-disable-next-line new-cap
 const router = express.Router();
 
@@ -25,8 +22,6 @@ const authorize = function(req, res, next) {
 
 router.get('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;
-
-
 
   knex('favorites')
     .innerJoin('destinations', 'destinations.id', 'favorites.destination_id')
@@ -46,7 +41,6 @@ router.post('/favorites', authorize, (req, res, next) => {
   const { name, description, photoUrl, language, currency, xRate, latitude, longitude } = req.body;
   const { userId } = req.token;
 
-
   knex('destinations')
     .where('name', name)
     .first()
@@ -65,7 +59,7 @@ router.post('/favorites', authorize, (req, res, next) => {
           }), '*');  // * means you get insertion result back.
       }
 
-      return [destination]
+      return [destination];
     })
     .then((destinations) => {
       const destination = destinations[0];
@@ -83,7 +77,6 @@ router.post('/favorites', authorize, (req, res, next) => {
       next(err);
     });
 });
-
 
 router.delete('/favorites', authorize, (req, res, next) => {
   const { userId } = req.token;

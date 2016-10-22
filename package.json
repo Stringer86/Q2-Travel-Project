@@ -36,5 +36,9 @@
     "nodemon": "^1.11.0",
     "pg": "^6.1.0",
     "request": "^2.75.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-config-ryansobol": "^9.1.1"
   }
 }

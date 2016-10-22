@@ -1,6 +1,7 @@
+'use strict';
 $(document).ready(function() {
-  'use strict';
 
+// eslint-disable-next-line max-statements
   const data = {
     "Afghanistan": null,
     "Albania": null,
