@@ -44,8 +44,8 @@ $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
     console.log(images);
 
     for (let i = 0; i < images.length; i++) {
-        $images.append(`<div class="col s4"><img class="materialboxed" width="200px" height="200px" src="${images[i]}">
-        </div>`);
+        $images.append(`<img class="materialboxed col s4" width="200px" height="200px" src="${images[i]}">
+        `);
         if ((i - 2) % 3 === 0) {
           $images.append(`<div class=row></div>`)
         }

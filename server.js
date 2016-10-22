@@ -43,15 +43,12 @@ app.use((req, res, next) => {
   res.sendStatus(406);
 });
 
-
 const users = require('./routes/users');
 const token = require('./routes/token');
 const descriptions = require('./routes/descriptions');
 const images = require('./routes/images');
 const favorites = require('./routes/favorites');
 const travel = require('./routes/travel');
-
-
 
 app.use(users);
 app.use(token);

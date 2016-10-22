@@ -17,7 +17,7 @@ $.getJSON(`/favorites`)
     for (let i = 0; i < data.length; i++) {
       $images.append(
         `<div class="col s6">
-          <div class="card small">
+          <div class="card medium">
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="${data[i].photoUrl}" height="300px" width="100px">
             </div>

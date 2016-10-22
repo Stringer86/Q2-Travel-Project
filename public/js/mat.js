@@ -6,6 +6,7 @@ $(document).ready(function() {
     "Albania": null,
     "Algeria": null,
     "Andorra": null,
+    "Amsterdam": null,
     "Angola": null,
     "Anguilla": null,
     "Antigua &amp; Barbuda": null,
