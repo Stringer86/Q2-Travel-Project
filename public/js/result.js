@@ -1,6 +1,7 @@
 'use strict';
 (function() {
 
+<<<<<<< HEAD
 // eslint-disable-next-line max-statements
   const $description = $('.description');
   const $btn = $('.btn');
@@ -46,6 +47,53 @@
             <img class="materialboxed" width="200px" height="200px"
             src="${images[i]}">
           </div>`);
+=======
+
+const $description = $('.description');
+const $btn = $('.btn');
+const $images = $('.images');
+const $country = $('#country');
+const $language = $('#language');
+const $currency = $('#currency');
+const $neighbors = $('#neighbors');
+
+const $jan = $('#jan');
+const $feb = $('#feb');
+const $mar = $('#mar');
+const $apr = $('#apr');
+const $may = $('#may');
+const $jun = $('#jun');
+const $jul = $('#jul');
+const $aug = $('#aug');
+const $sep = $('#sep');
+const $oct = $('#oct');
+const $nov = $('#nov');
+const $dec = $('#dec');
+
+
+let hits;
+let images = [];
+let description;
+let language;
+let currency;
+let xRate;
+let latitude;
+let longitude;
+
+$.getJSON(`/api/images?searchTerm=${localStorage.input}`)
+  .done((data) => {
+    hits = data.hits;
+
+
+    for (let i = 0; i < hits.length; i++) {
+      images.push(hits[i].webformatURL);
+    }
+    console.log(images);
+
+    for (let i = 0; i < images.length; i++) {
+        $images.append(`<img class="materialboxed col s4" width="200px" height="200px" src="${images[i]}">
+        `);
+>>>>>>> notMaster
         if ((i - 2) % 3 === 0) {
           $images.append(`<div class=row></div>`)
         }
