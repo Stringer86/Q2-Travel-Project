@@ -36,7 +36,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = '/user_search.html';
+        window.location.href = '/index.html';
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
