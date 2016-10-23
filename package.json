@@ -4,10 +4,12 @@
   "description": "",
   "main": "knex.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js",
+    "heroku-postbuild": "knex migrate:latest",
     "knex": "knex",
-    "lint": "eslint ."
+    "lint": "eslint  --ignore-pattern public/js/vendor",
+    "nf": "nf start",
+    "start": "nodemon server.js",
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -39,6 +41,10 @@
   },
   "devDependencies": {
     "eslint": "^3.8.1",
-    "eslint-config-ryansobol": "^9.1.1"
+    "eslint-config-ryansobol": "^9.1.1",
+    "foreman": "^2.0.0"
+  },
+  "engines": {
+    "node": "6.6.0"
   }
 }
