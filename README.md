@@ -2,21 +2,20 @@
 
 ## Wanderlust
 
-Wanderlust allows users to research possible vacation areas by country name or city name and save these locations for later reference.
-
+Wanderlust enables users to research possible vacation areas by country or city name and save these locations for later reference.
 
 ##Built With:
 
-Node
-Express
-jQuery
-Materialize
+*Node
+*Express
+*jQuery
+*Materialize
 
-External Apis include:
+##External Apis include:
 
-[http://lookup.dbpedia.org/api/search.asmx/KeywordSearch]dbpedia
-[https://pixabay.com/api/]pixabay
-[https://travelbriefing.org/]travelbriefing.org
+*[dbpedia](http://lookup.dbpedia.org/api/search.asmx/KeywordSearch)
+*[pixabay](https://pixabay.com/api/)
+*[travelbriefing.org](https://travelbriefing.org/)
 
 ##Authors
 
