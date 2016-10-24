@@ -19,8 +19,8 @@ Wanderlust enables users to research possible vacation areas by country or city 
 
 ##Authors
 
-Stephen Stringer
-Ross Todd
++ Stephen Stringer
++ Ross Todd
 
 ###License
 
