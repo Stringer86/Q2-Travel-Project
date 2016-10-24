@@ -1,7 +1,6 @@
 'use strict';
 (function() {
 
-<<<<<<< HEAD
 // eslint-disable-next-line max-statements
   const $description = $('.description');
   const $btn = $('.btn');
