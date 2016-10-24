@@ -2,7 +2,7 @@
 
 ## Wanderlust
 
-Wanderlust enables users to research possible vacation areas by country or city name and save these locations for later reference.
+Wanderlust is inspired by the desire to travel. It enables users to research possible vacation areas by country or city name and save these locations for reference.
 
 ##Built With:
 
