@@ -1,6 +1,5 @@
 'use strict';
 
-<<<<<<< HEAD
 (function() {
 // eslint-disable-next-line max-statements
 
@@ -16,7 +15,7 @@
       for (let i = 0; i < data.length; i++) {
         $images.append(
           `<div class="col s6">
-            <div class="card small">
+            <div class="card medium">
               <div class="card-image waves-effect waves-block waves-light">
                 <img class="activator" src="${data[i].photoUrl}" height="300px" width="100px">
               </div>
@@ -24,36 +23,6 @@
                 <span class="card-title activator grey-text text-darken-4 truncate">
                   ${data[i].name}<i class="material-icons right">more_vert</i>
                 </span>
-=======
-const $countrybtn = $('.countrybtn');
-const $citybtn = $('.citybtn');
-const $city = $('.city');
-const $search = $('.autocomplete');
-const $images = $('#images');
-const $test = $('.test');
-const $logout = $('#logout');
-
-let ids = [];
-
-$.getJSON(`/favorites`)
-  .done((data) => {
-
-    for (let i = 0; i < data.length; i++) {
-      $images.append(
-        `<div class="col s6">
-          <div class="card medium">
-            <div class="card-image waves-effect waves-block waves-light">
-              <img class="activator" src="${data[i].photoUrl}" height="300px" width="100px">
-            </div>
-            <div class="card-content">
-              <span class="card-title activator grey-text text-darken-4 truncate">${data[i].name}<i class="material-icons right">more_vert</i></span>
-              <div class="divider"></div>
-              <p><a type="submit" class="btn search" id="${data[i].name}">view</a></p>
-            </div>
-            <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">${data[i].name}<i class="material-icons right">close</i></span>
-              <p>${data[i].description}</p>
->>>>>>> notMaster
                 <div class="divider"></div>
                 <p>
                   <a type="submit" class="btn search" id="${data[i].name}">view</a>

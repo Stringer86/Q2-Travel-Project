@@ -25,42 +25,8 @@
 
       for (let i = 0; i < images.length; i++) {
         $images.append(
-          `<div class="col s3">
-              <img class="materialboxed" width="200px" height="200px"
-              src="${images[i]}">
-            </div>`);
-
-<<<<<<< HEAD
-=======
-const $description = $('.description');
-const $btn = $('.btn');
-const $images = $('.images');
-let language,
-    currency,
-    xRate,
-    latitude,
-    longitude;
-
-
-
-let hits;
-let images = [];
-let description;
-
-
-$.getJSON(`/api/images/city/?searchTerm=${localStorage.input}`)
-  .done((data) => {
-    hits = data.hits;
-
-
-    for (let i = 0; i < hits.length; i++) {
-      images.push(hits[i].webformatURL);
-    }
-    console.log(images);
-
-    for (let i = 0; i < images.length; i++) {
-        $images.append(`<img class="materialboxed col s3" width="200px" height="200px" src="${images[i]}">`);
->>>>>>> notMaster
+          `<img class="materialboxed col s3" width="200px" height="200px"
+          src="${images[i]}">`);
         if ((i - 3) % 4 === 0) {
           $images.append('<div class=row></div>');
         }
