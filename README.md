@@ -6,16 +6,16 @@ Wanderlust enables users to research possible vacation areas by country or city 
 
 ##Built With:
 
-*Node
-*Express
-*jQuery
-*Materialize
++ Node
++ Express
++ jQuery
++ Materialize
 
 ##External Apis include:
 
-*[dbpedia](http://lookup.dbpedia.org/api/search.asmx/KeywordSearch)
-*[pixabay](https://pixabay.com/api/)
-*[travelbriefing.org](https://travelbriefing.org/)
++ [dbpedia](http://lookup.dbpedia.org/api/search.asmx/KeywordSearch)
++ [pixabay](https://pixabay.com/api/)
++ [travelbriefing.org](https://travelbriefing.org/)
 
 ##Authors
 
