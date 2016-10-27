@@ -6,12 +6,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <link href="https://fonts.googleapis.com/css?family=Arvo|Lato" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Arvo" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <title>Q2 Project</title>
 </head>
 
 <body>
-
   <header>
      <nav>
         <div class="nav-wrapper #f9a825 teal darken-3">
@@ -27,23 +27,25 @@
     <div class="row topRow"></div>
     <div id="container">
         <div id="search-row" class="row valign-wrapper pad">
-
           <div class="col s4 offset-s1">
-            <label for="autocomplete-input">
+            <label for="Country">
+              <!-- <input id="email" type="email" class="validate">
+              <label for="email" data-error="wrong" data-success="right">Email</label> -->
               <input
+                id="Country"
                 type="text"
                 class="autocomplete row country"
-                name="location"
                 placeholder="Explore a Country..."/>
             </label>
           </div>
 
           <div id="btn" class="col s4 searchButton">
-            <a class="waves-effect waves-light countrybtn btn" type="submit" name="action">Search</a>
+            <button class="waves-effect waves-light countrybtn btn" type="submit">Search</button>
           </div>
           <div class="col s4 offset-s1">
-            <label for="autocomplete-input">
+            <label for="City">
               <input
+              id="City"
                 type="text"
                 class="row city"
                 name="location"
@@ -51,7 +53,7 @@
             </label>
           </div>
           <div id="citybtn" class="col s4">
-            <a class="waves-effect waves-light citybtn btn" type="submit" name="action">Search</a>
+            <button class="waves-effect waves-light citybtn btn" type="submit">Search</button>
           </div>
 
         </div>
