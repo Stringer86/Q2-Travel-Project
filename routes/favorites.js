@@ -65,17 +65,30 @@ router.post('/favorites', authorize, (req, res, next) => {
       const destination = destinations[0];
 
       return knex('favorites')
-        .insert(decamelizeKeys({
-          userId,
-          destinationId: destination.id
-        }), '*');
-    })
-    .then((favorites) => {
-      res.send(favorites[0]);
+        .where('destination_id', destination.id)
+        .where('user_id', userId)
+        .first()
+        .then((favorite) => {
+          if (!favorite) {
+            return knex('favorites')
+              .insert(decamelizeKeys({
+                userId,
+                destinationId: destination.id
+              }), '*');
+          }
+          return [favorite];
+        })
+        .then((favorites) => {
+          res.send(favorites[0]);
+
     })
     .catch((err) => {
       next(err);
     });
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 router.delete('/favorites', authorize, (req, res, next) => {
