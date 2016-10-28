@@ -47,6 +47,16 @@
     Materialize.toast('Description not loading', 3000);
   });
 
+  $.getJSON(`api/coordinates?searchTerm=${localStorage.input}`)
+  .done((data) => {
+    latitude = data.results[0].geometry.location.lat;
+    longitude = data.results[0].geometry.location.lng;
+
+  })
+  .fail(() => {
+    Materialize.toast('Coordinates not loading', 3000);
+  });
+
   function favoriteIt(event) {
     event.preventDefault();
 

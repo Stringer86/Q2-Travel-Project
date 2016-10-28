@@ -28,4 +28,23 @@ router.get('/api/travel', (req, res, _next) => {
   });
 });
 
+router.get('/api/coordinates', (req, res, _next) => {
+  const { searchTerm } = req.query;
+
+  var options = { method: 'GET',
+  url: 'https://maps.googleapis.com/maps/api/geocode/json',
+  qs: { address: searchTerm },
+  headers:
+   { 'postman-token': '59be485b-f649-4d23-2eb0-5bfbf1ba8088',
+     'cache-control': 'no-cache',
+     'content-type': 'application/x-www-form-urlencoded',
+     accept: 'application/json' } };
+
+  request(options, function (error, response, body) {
+    if (error) throw new Error(error);
+
+    res.send(body);
+  });
+})
+
 module.exports = router;
