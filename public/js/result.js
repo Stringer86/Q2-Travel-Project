@@ -32,6 +32,7 @@
   let latitude;
   let longitude;
   let photoId;
+  let type = 'country';
 
   $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
     .done((data) => {
@@ -128,7 +129,8 @@
         currency,
         xRate,
         latitude,
-        longitude
+        longitude,
+        type
       }),
       dataType: 'json',
       type: 'POST',

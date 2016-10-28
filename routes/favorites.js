@@ -64,7 +64,7 @@ router.get('/favorites', authorize, (req, res, next) => {
 });
 
 router.post('/favorites', authorize, (req, res, next) => {
-  const { name, description, photoUrl, photoId, language, currency, xRate, latitude, longitude } = req.body;
+  const { name, description, photoUrl, photoId, language, currency, xRate, latitude, longitude, type } = req.body;
   const { userId } = req.token;
 
   knex('destinations')
@@ -82,7 +82,8 @@ router.post('/favorites', authorize, (req, res, next) => {
             currency: currency,
             xRate: xRate,
             latitude: latitude,
-            longitude: longitude
+            longitude: longitude,
+            type: type
           }), '*');  // * means you get insertion result back.
       }
 

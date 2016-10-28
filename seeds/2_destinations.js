@@ -16,6 +16,7 @@ exports.seed = function(knex) {
         x_rate: '667.690002',
         latitude: '-36.739055',
         longitude: '-71.0574942',
+        type: 'country',
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
@@ -29,6 +30,7 @@ exports.seed = function(knex) {
         x_rate: '22306',
         latitude: '15.9030623',
         longitude: '105.8066925',
+        type: 'country',
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }, {
@@ -42,6 +44,7 @@ exports.seed = function(knex) {
         x_rate: '0.910601',
         latitude: '51.1642292',
         longitude: '10.4541193',
+        type: 'country',
         created_at: new Date('2016-06-26 14:26:16 UTC'),
         updated_at: new Date('2016-06-26 14:26:16 UTC')
       }]);

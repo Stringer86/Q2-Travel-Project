@@ -12,6 +12,7 @@ exports.up = function(knex) {
     table.string('x_rate').defaultTo('');
     table.string('latitude').defaultTo('');
     table.string('longitude').defaultTo('');
+    table.string('type').notNullable().defaultTo('');
     table.timestamps(true, true);
   });
 };

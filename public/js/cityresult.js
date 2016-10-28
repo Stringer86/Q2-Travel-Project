@@ -10,6 +10,7 @@
   let xRate;
   let latitude;
   let longitude;
+  let type = 'city';
 
   let hits;
   const images = [];
@@ -74,7 +75,8 @@
         currency,
         xRate,
         latitude,
-        longitude
+        longitude,
+        type
       }),
       dataType: 'json',
       type: 'POST',
