@@ -223,7 +223,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = `/cityresult.html?${searchInput}`;
+        window.location.href = `/cityResult.html?${searchInput}`;
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
