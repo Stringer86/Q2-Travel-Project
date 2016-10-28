@@ -65,7 +65,7 @@
                   </span>
                   <div class="divider"></div>
                   <p>
-                    <a type="submit" class="btn search" id="${data[i].element.name}">view</a>
+                    <a type="submit" class="btn searchcity" id="${data[i].element.name}">view</a>
                   </p>
                 </div>
                 <div class="card-reveal">
@@ -86,9 +86,9 @@
 
           $del.click(deleteFav);
 
-          const $search = $('.search');
+          const $searchcity = $('.searchcity');
 
-          $search.click(searchFavCity);
+          $searchcity.click(searchFavCity);
         }
 
         }
@@ -119,7 +119,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = `/result.html?${searchInput}`;
+        window.location.href = `/country.html?${searchInput}`;
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -147,7 +147,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = `/cityResult.html?${searchInput}`;
+        window.location.href = `/city.html?${searchInput}`;
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -168,7 +168,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = '/user_search.html';
+        window.location.href = '/profile.html';
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -196,7 +196,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = `/result.html?${searchInput}`;
+        window.location.href = `/country.html?${searchInput}`;
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
@@ -223,7 +223,7 @@
 
     $.ajax(options)
       .done(() => {
-        window.location.href = `/cityResult.html?${searchInput}`;
+        window.location.href = `/city.html?${searchInput}`;
       })
       .fail(($xhr) => {
         Materialize.toast($xhr.responseText, 3000);
