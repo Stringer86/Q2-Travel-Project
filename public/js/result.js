@@ -31,10 +31,13 @@
   let xRate;
   let latitude;
   let longitude;
+  let photoId;
 
   $.getJSON(`/api/images?searchTerm=${localStorage.input}`)
     .done((data) => {
       hits = data.hits;
+      photoId = data.hits[2].id;
+      console.log(photoId);
 
       for (let i = 0; i < hits.length; i++) {
         images.push(hits[i].webformatURL);
@@ -120,6 +123,7 @@
         name,
         description,
         photoUrl,
+        photoId,
         language,
         currency,
         xRate,

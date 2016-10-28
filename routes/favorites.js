@@ -8,6 +8,8 @@ const { camelizeKeys, decamelizeKeys } = require('humps');
 
 // eslint-disable-next-line new-cap
 const router = express.Router();
+const request = require('request');
+
 
 const authorize = function(req, res, next) {
   jwt.verify(req.cookies.token, process.env.JWT_SECRET, (err, decoded) => {
@@ -30,7 +32,31 @@ router.get('/favorites', authorize, (req, res, next) => {
     .then((rows) => {
       const favorites = camelizeKeys(rows);
 
-      res.send(favorites);
+      const newFavs = favorites.map((element) => {
+        const options = { method: 'GET',
+        url: 'https://pixabay.com/api/',
+        qs:
+         { q: element.name,
+           category: 'nature',
+           order: 'popular',
+           key: '3524767-02f5ba794561ee4931dcf448b' },
+        headers:
+         { 'postman-token': 'f31842c3-884f-ff6c-bf51-b6c0d6f4d809',
+           'cache-control': 'no-cache',
+           accept: 'application/json' }};
+
+          return new Promise ((resolve, reject) => {
+            request(options, function (error, response, body) {
+              if (error) reject(error);
+
+              return resolve({body: body, element: element});
+            });
+          });
+      })
+      return Promise.all(newFavs);
+    })
+    .then((favs) => {
+      res.send(favs);
     })
     .catch((err) => {
       next(err);
@@ -38,7 +64,7 @@ router.get('/favorites', authorize, (req, res, next) => {
 });
 
 router.post('/favorites', authorize, (req, res, next) => {
-  const { name, description, photoUrl, language, currency, xRate, latitude, longitude } = req.body;
+  const { name, description, photoUrl, photoId, language, currency, xRate, latitude, longitude } = req.body;
   const { userId } = req.token;
 
   knex('destinations')
@@ -51,6 +77,7 @@ router.post('/favorites', authorize, (req, res, next) => {
             name: name,
             description: description,
             photoUrl: photoUrl,
+            photoId: photoId,
             language: language,
             currency: currency,
             xRate: xRate,

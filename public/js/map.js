@@ -3,14 +3,14 @@
 
   $.getJSON(`/favorites`)
     .done((data) => {
-
+      console.log(data);
       const locations = [];
       let j;
 
       for (j = 0; j < data.length; j++) {
-        const place = data[j].name;
-        const lat = parseFloat(data[j].latitude);
-        const long = parseFloat(data[j].longitude);
+        const place = data[j].element.name;
+        const lat = parseFloat(data[j].element.latitude);
+        const long = parseFloat(data[j].element.longitude);
 
         locations.push([place, lat, long, j]);
       }
