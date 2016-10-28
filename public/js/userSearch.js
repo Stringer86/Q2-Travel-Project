@@ -218,7 +218,7 @@
       data: JSON.stringify({ searchInput }),
       dataType: 'json',
       type: 'GET',
-      url: '/api/images'
+      url: '/api/images/city'
     };
 
     $.ajax(options)
