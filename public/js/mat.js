@@ -1,5 +1,9 @@
 'use strict';
 $(document).ready(function() {
+  $('.modal-trigger').leanModal();
+  $('.button-collapse').sideNav();
+  $('.parallax').parallax();
+
 
 // eslint-disable-next-line max-statements
   const data = {
@@ -212,16 +216,6 @@ $(document).ready(function() {
   };
 
   $('select').material_select();
-
-  $('.datepicker').pickadate({
-    selectMonths: true // Creates a dropdown to control month
-  });
-
-  $('.button-collapse').sideNav({
-    menuWidth: 600, // Default is 240
-    edge: 'left', // Choose the horizontal origin
-    closeOnClick: true
-  });
 
   $('input.autocomplete').autocomplete({
     data: data
