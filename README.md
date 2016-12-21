@@ -35,7 +35,7 @@ Wanderlust is a travel-themed web application inspired by the desire to travel. 
 
 ![Home View](./READMEIMG/wanderHome.png)
 
-![Home View 2](./READMEIMG/wanderUserPg.png")
+![Home View 2](./READMEIMG/france.png")
 
 
 ###License
