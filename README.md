@@ -24,7 +24,7 @@ Wanderlust is a travel-themed web application inspired by the desire to travel. 
 
 + [DBpedia](http://lookup.dbpedia.org/api/search.asmx/KeywordSearch)
 + [Pixabay](https://pixabay.com/api/)
-+ [travelbriefing.org](https://travelbriefing.org/)
++ [Travelbriefing.org](https://travelbriefing.org/)
 + [Google Maps](https://developers.google.com/maps/)
 
 ##Authors
