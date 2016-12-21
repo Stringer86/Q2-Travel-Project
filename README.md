@@ -32,13 +32,13 @@ Wanderlust is a travel-themed web application inspired by the desire to travel. 
 + Stephen Stringer  
 + Ross Todd
 
-
+***
 ![Home View](./READMEIMG/wanderHome.png)
-
+***
 ![Country Search](./READMEIMG/france.png)
-
+***
 ![User Page](./READMEIMG/wanderUserPg.png)
-
+***
 
 ###License
 
