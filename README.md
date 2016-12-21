@@ -1,4 +1,4 @@
-# Q2-Travel-Project
+# Wanderlust a Q2-Travel-Project
 
 ## [Wanderlust](https://stringer86-wanderlust.herokuapp.com/)
 
