@@ -1,6 +1,7 @@
 # Wanderlust a Q2-Travel-Project
 
 ## [Wanderlust](http://wanderlust-stringertodd.herokuapp.com/)
+[Video walkthrough](https://youtu.be/zRco9tswx3o)
 
 Wanderlust is a travel-themed web application inspired by the desire to travel. It enables users to research possible vacation areas by country or city name and save these locations for reference.
 
